@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		367FED1921F81E2500DA026A /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 367FED1821F81E2500DA026A /* awsconfiguration.json */; };
+		367FED1B21F9594800DA026A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED1A21F9594800DA026A /* API.swift */; };
 		36EF8A8421F665D60000F473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF8A8321F665D60000F473 /* AppDelegate.swift */; };
 		36EF8A8621F665D60000F473 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF8A8521F665D60000F473 /* ViewController.swift */; };
 		36EF8A8921F665D60000F473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36EF8A8721F665D60000F473 /* Main.storyboard */; };
 		36EF8A8B21F665DD0000F473 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EF8A8A21F665DD0000F473 /* Assets.xcassets */; };
 		36EF8A8E21F665DD0000F473 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36EF8A8C21F665DD0000F473 /* LaunchScreen.storyboard */; };
+		DE61034A6E3F271115E625D9 /* Pods_DCDawgs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67623D3CBCEC3E8D15BF45C4 /* Pods_DCDawgs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06276BCDA4FD120D09C6AE9A /* Pods-DCDawgs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCDawgs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCDawgs/Pods-DCDawgs.debug.xcconfig"; sourceTree = "<group>"; };
+		367FED1821F81E2500DA026A /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		367FED1A21F9594800DA026A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		36EF8A8021F665D60000F473 /* DCDawgs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCDawgs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EF8A8321F665D60000F473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36EF8A8521F665D60000F473 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,8 @@
 		36EF8A8A21F665DD0000F473 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36EF8A8D21F665DD0000F473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36EF8A8F21F665DD0000F473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B8437C6912CEA84EEA319AA /* Pods-DCDawgs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCDawgs.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCDawgs/Pods-DCDawgs.release.xcconfig"; sourceTree = "<group>"; };
+		67623D3CBCEC3E8D15BF45C4 /* Pods_DCDawgs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DCDawgs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE61034A6E3F271115E625D9 /* Pods_DCDawgs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +47,12 @@
 		36EF8A7721F665D60000F473 = {
 			isa = PBXGroup;
 			children = (
+				367FED1A21F9594800DA026A /* API.swift */,
+				367FED1821F81E2500DA026A /* awsconfiguration.json */,
 				36EF8A8221F665D60000F473 /* DCDawgs */,
 				36EF8A8121F665D60000F473 /* Products */,
+				83239FFADA27AA9584CE7FEB /* Pods */,
+				6BA5D59961FBB8490995502D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +77,23 @@
 			path = DCDawgs;
 			sourceTree = "<group>";
 		};
+		6BA5D59961FBB8490995502D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67623D3CBCEC3E8D15BF45C4 /* Pods_DCDawgs.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83239FFADA27AA9584CE7FEB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06276BCDA4FD120D09C6AE9A /* Pods-DCDawgs.debug.xcconfig */,
+				3B8437C6912CEA84EEA319AA /* Pods-DCDawgs.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36EF8A9221F665DD0000F473 /* Build configuration list for PBXNativeTarget "DCDawgs" */;
 			buildPhases = (
+				7949C0F8AABFE352EB600B14 /* [CP] Check Pods Manifest.lock */,
 				36EF8A7C21F665D60000F473 /* Sources */,
 				36EF8A7D21F665D60000F473 /* Frameworks */,
 				36EF8A7E21F665D60000F473 /* Resources */,
+				C0746560805063EA2CAB054B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				367FED1921F81E2500DA026A /* awsconfiguration.json in Resources */,
 				36EF8A8E21F665DD0000F473 /* LaunchScreen.storyboard in Resources */,
 				36EF8A8B21F665DD0000F473 /* Assets.xcassets in Resources */,
 				36EF8A8921F665D60000F473 /* Main.storyboard in Resources */,
@@ -130,12 +163,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7949C0F8AABFE352EB600B14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DCDawgs-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0746560805063EA2CAB054B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DCDawgs/Pods-DCDawgs-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSAppSync/AWSAppSync.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAppSync.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DCDawgs/Pods-DCDawgs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		36EF8A7C21F665D60000F473 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				36EF8A8621F665D60000F473 /* ViewController.swift in Sources */,
+				367FED1B21F9594800DA026A /* API.swift in Sources */,
 				36EF8A8421F665D60000F473 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,9 +359,11 @@
 		};
 		36EF8A9321F665DD0000F473 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06276BCDA4FD120D09C6AE9A /* Pods-DCDawgs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6EQCFZ562R;
 				INFOPLIST_FILE = DCDawgs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -297,9 +378,11 @@
 		};
 		36EF8A9421F665DD0000F473 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B8437C6912CEA84EEA319AA /* Pods-DCDawgs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6EQCFZ562R;
 				INFOPLIST_FILE = DCDawgs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
