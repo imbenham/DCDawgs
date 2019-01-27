@@ -10,6 +10,7 @@
 		367FED2421FE290B00DA026A /* API_Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 367FED2321FE290B00DA026A /* API_Config.plist */; };
 		367FED2621FE411A00DA026A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2521FE411A00DA026A /* API.swift */; };
 		367FED2821FE419900DA026A /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 367FED2721FE419900DA026A /* awsconfiguration.json */; };
+		367FED2A21FE4B5100DA026A /* RootLandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2921FE4B5100DA026A /* RootLandingPageViewController.swift */; };
 		36EF8A8421F665D60000F473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF8A8321F665D60000F473 /* AppDelegate.swift */; };
 		36EF8A8621F665D60000F473 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF8A8521F665D60000F473 /* BaseViewController.swift */; };
 		36EF8A8921F665D60000F473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36EF8A8721F665D60000F473 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		367FED2321FE290B00DA026A /* API_Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_Config.plist; sourceTree = "<group>"; };
 		367FED2521FE411A00DA026A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		367FED2721FE419900DA026A /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		367FED2921FE4B5100DA026A /* RootLandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootLandingPageViewController.swift; sourceTree = "<group>"; };
 		36EF8A8021F665D60000F473 /* DCDawgs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCDawgs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EF8A8321F665D60000F473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36EF8A8521F665D60000F473 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				36EF8A8521F665D60000F473 /* BaseViewController.swift */,
+				367FED2921FE4B5100DA026A /* RootLandingPageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				36EF8A8621F665D60000F473 /* BaseViewController.swift in Sources */,
 				367FED2621FE411A00DA026A /* API.swift in Sources */,
 				36EF8A8421F665D60000F473 /* AppDelegate.swift in Sources */,
+				367FED2A21FE4B5100DA026A /* RootLandingPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
