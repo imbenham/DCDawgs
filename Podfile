@@ -7,6 +7,9 @@ target 'DCDawgs' do
 
   pod 'AWSCore', '~> 2.8.0'
   pod 'AWSAppSync', '~> 2.9.0'
+  pod 'AWSMobileClient', '~> 2.8.0'      # Required dependency
+  pod 'AWSAuthUI', '~> 2.8.0'            # Optional dependency required to use drop-in UI
+  pod 'AWSUserPoolsSignIn', '~> 2.8.0'   # Optional dependency required to use drop-in UI
   # Pods for DCDawgs
 
 end

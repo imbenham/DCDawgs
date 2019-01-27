@@ -1,0 +1,102 @@
+Your project has been successfully initialized and connected to the cloud!
+
+Some next steps:
+"amplify status" will show you what you've added already and if it's locally configured or deployed
+"amplify <category> add" will allow you to add features like user login or a backend API
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+
+Pro tip:
+Try "amplify add api" to create a backend API and then "amplify publish" to deploy everything
+
+^ Amplify init message
+
+How it Works
+Rather than configuring each service through a constructor or constants file, the AWS SDKs for 
+iOS support configuration through a centralized file called awsconfiguration.json which defines 
+all the regions and service endpoints to communicate. Whenever you run amplify push, this file 
+is automatically created allowing you to focus on your Swift application code. On iOS projects 
+the awsconfiguration.json will be placed into the root directory and you will need to add it to 
+your XCode project.
+
+To verify that the CLI is set up for your app, run the following command: amplify status
+
+The CLI displays a status table with no resources listed. As you add feature categories to 
+your app and run amplify push, backend resources created for your app are listed in this table.
+
+Next add API and DB with command: amplify add api 
+lets you choose:
+- whether you want GraphQL or REST API (learn what difference is)
+- name of API
+- whether you already have an "annotated GraphQL schema" (selected no but wonder what yes does)
+- if you want guided schema creation (selected yes but wonder what no does)
+- asks you to choose whether your app is best described by a single object with fields or one-to-many 
+relationships (chose single object to focus on definng user first)
+- asks you if you want to create schema now and if you select ys it creates and opens a schema.graphql file
+in your preferred text editor
+    - can edit and save and then tell amplify you're done
+    - you'll get: 
+    GraphQL schema compiled successfully. Edit your schema at 
+    /Users/isaacbenham/DCDawgs-iOS/DCDawgs/amplify/backend/api/dcdawgs/schema.graphql
+    Successfully added resource dcdawgs locally
+- Recommends some next steps:
+    - "amplify push" will build all your local backend resources and provision it in the cloud
+    - "amplify publish" will build all your local backend and frontend resources 
+    (if you have hosting category added) and provision it in the cloud
+- Since you added an API the amplify push process will automatically enter the codegen process 
+and prompt you for configuration. Accept the defaults which generate a file named API.swift. 
+Drag and drop this file from you Finder to the Xcode project and update your Podfile to include AWSAppSync
+- will walk you through some code generation options and then create the resources in the cloud and give 
+you a path (i.e. https://zth6wyoktndh5azqd5o6h4slli.appsync-api.us-east-1.amazonaws.com/graphql) and an API key
+
+
+Cognito & Authentication
+
+Cognito User Pool tokens
+The AWSMobileClient will return valid JWT tokens from your cache immediately if they have not expired. If 
+they have expired it will look for a Refresh token in the cache. If it is available and not expired it will 
+be used to fetch a valid IdToken and AccessToken and store them in the cache.
+
+If the Refresh tokens have expired and you then make call to any AWS service, such as a AppSync GraphQL
+request or S3 upload, the AWSMobileClient will dispatch a state notification that a re-login is required. 
+At this point you can choose to present the user with a login screen, call 
+AWSMobileClient.sharedInstance().signIn(), or perform custom business logic. For example:
+
+AWSMobileClient.sharedInstance().addUserStateListener(self) { (userState, info) in
+            
+            switch (userState) {
+            case .signedOut:
+                // user clicked signout button and signedout
+                print("user signed out")
+            case .signedOutUserPoolsTokenInvalid:
+                print("need to login again.")
+                AWSMobileClient.sharedInstance().signIn(username: "username", password: "password", completionHandler: { (res, err) in
+                    //...
+                });
+                //Alternatively call .showSignIn()
+            default:
+                print("unsupported")
+            }
+}
+You can register to listen for this state change anywhere in your app with .addUserStateListener, such as 
+in viewDidLoad() in the above example. If you want to cancel the re-login process, for instance if your 
+application is shared among multiple users of the device or a user clicks “cancel” on the re-login attempt, 
+you can call releaseSignInWait() to terminate the call and then call a signOut().
+
+AWS Credentials
+AWS Credentials are used for signing requests to services that use AWS IAM, and for mobile clients they are 
+provided by Amazon Cognito Identity Pools. Similar to JWT tokens, AWSMobileClient will return valid AWS 
+Credentials from your cache immediately if they have not expired. If they are expired they will be 
+refreshed using the JWT token that has been federated if the session is authenticated. For Guest 
+scenarios they will be automatically refreshed.
+
+GraphQL operations that are blocked due to expired credentials will happen automatically when the user signs
+back in:
+
+If you are offline and make a service request, and your tokens are NOT valid, the service request will 
+be blocked and notifications for signedOutUserPoolsTokenInvalid or signedOutFederatedTokensInvalid will 
+be sent to the listener. In the case of the AppSync client this can be ignored and the queries will come 
+from cache or mutations enqueued with credentials automatically refreshing upon reconnection. For all 
+other services, if this happens and you are offline you should not make the service request until you 
+come back online, at which point the AWSMobileClient will automatically re-enter the token refresh 
+flow outlined above and then make the service call with the updated credentials.
