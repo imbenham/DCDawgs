@@ -1,0 +1,11 @@
+{
+    "projectName": "DCDawgs",
+    "projectPath": "/Users/isaacbenham/DCDawgs-iOS/DCDawgs",
+    "defaultEditor": "code",
+    "frontendHandler": {
+        "ios": "/Users/isaacbenham/.nvm/versions/node/v11.7.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-ios"
+    },
+    "providers": {
+        "awscloudformation": "/Users/isaacbenham/.nvm/versions/node/v11.7.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+    }
+}

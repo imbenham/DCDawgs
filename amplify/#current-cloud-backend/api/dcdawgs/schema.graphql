@@ -1,0 +1,10 @@
+type User @model {
+  id: ID!
+  first_name: String!
+  last_name: String!
+  email: String
+  alum: Boolean
+  honorary_alum: Boolean
+  grad_year: Int
+  moved_to_dc: Int
+}

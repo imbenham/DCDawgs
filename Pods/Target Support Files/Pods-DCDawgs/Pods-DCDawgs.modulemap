@@ -1,0 +1,6 @@
+framework module Pods_DCDawgs {
+  umbrella header "Pods-DCDawgs-umbrella.h"
+
+  export *
+  module * { export * }
+}

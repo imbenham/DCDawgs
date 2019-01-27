@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		367FED1921F81E2500DA026A /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 367FED1821F81E2500DA026A /* awsconfiguration.json */; };
-		367FED1B21F9594800DA026A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED1A21F9594800DA026A /* API.swift */; };
+		367FED1D21FAB46B00DA026A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED1C21FAB46B00DA026A /* API.swift */; };
+		367FED2421FE290B00DA026A /* API_Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 367FED2321FE290B00DA026A /* API_Config.plist */; };
 		36EF8A8421F665D60000F473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF8A8321F665D60000F473 /* AppDelegate.swift */; };
-		36EF8A8621F665D60000F473 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF8A8521F665D60000F473 /* ViewController.swift */; };
+		36EF8A8621F665D60000F473 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF8A8521F665D60000F473 /* BaseViewController.swift */; };
 		36EF8A8921F665D60000F473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36EF8A8721F665D60000F473 /* Main.storyboard */; };
 		36EF8A8B21F665DD0000F473 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EF8A8A21F665DD0000F473 /* Assets.xcassets */; };
 		36EF8A8E21F665DD0000F473 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36EF8A8C21F665DD0000F473 /* LaunchScreen.storyboard */; };
@@ -20,10 +21,11 @@
 /* Begin PBXFileReference section */
 		06276BCDA4FD120D09C6AE9A /* Pods-DCDawgs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCDawgs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCDawgs/Pods-DCDawgs.debug.xcconfig"; sourceTree = "<group>"; };
 		367FED1821F81E2500DA026A /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
-		367FED1A21F9594800DA026A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		367FED1C21FAB46B00DA026A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = DCDawgs/APIClient/API.swift; sourceTree = SOURCE_ROOT; };
+		367FED2321FE290B00DA026A /* API_Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_Config.plist; sourceTree = "<group>"; };
 		36EF8A8021F665D60000F473 /* DCDawgs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCDawgs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EF8A8321F665D60000F473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		36EF8A8521F665D60000F473 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		36EF8A8521F665D60000F473 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		36EF8A8821F665D60000F473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36EF8A8A21F665DD0000F473 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36EF8A8D21F665DD0000F473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,11 +46,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		367FED1E21FAB7B700DA026A /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				367FED1821F81E2500DA026A /* awsconfiguration.json */,
+				367FED1C21FAB46B00DA026A /* API.swift */,
+				367FED2321FE290B00DA026A /* API_Config.plist */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		367FED1F21FAB7E300DA026A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				36EF8A8521F665D60000F473 /* BaseViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		367FED2021FAB80300DA026A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		36EF8A7721F665D60000F473 = {
 			isa = PBXGroup;
 			children = (
-				367FED1A21F9594800DA026A /* API.swift */,
-				367FED1821F81E2500DA026A /* awsconfiguration.json */,
 				36EF8A8221F665D60000F473 /* DCDawgs */,
 				36EF8A8121F665D60000F473 /* Products */,
 				83239FFADA27AA9584CE7FEB /* Pods */,
@@ -68,7 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				36EF8A8321F665D60000F473 /* AppDelegate.swift */,
-				36EF8A8521F665D60000F473 /* ViewController.swift */,
+				367FED1E21FAB7B700DA026A /* APIClient */,
+				367FED1F21FAB7E300DA026A /* ViewControllers */,
+				367FED2021FAB80300DA026A /* Extensions */,
 				36EF8A8721F665D60000F473 /* Main.storyboard */,
 				36EF8A8A21F665DD0000F473 /* Assets.xcassets */,
 				36EF8A8C21F665DD0000F473 /* LaunchScreen.storyboard */,
@@ -158,6 +185,7 @@
 				36EF8A8E21F665DD0000F473 /* LaunchScreen.storyboard in Resources */,
 				36EF8A8B21F665DD0000F473 /* Assets.xcassets in Resources */,
 				36EF8A8921F665D60000F473 /* Main.storyboard in Resources */,
+				367FED2421FE290B00DA026A /* API_Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,8 +241,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36EF8A8621F665D60000F473 /* ViewController.swift in Sources */,
-				367FED1B21F9594800DA026A /* API.swift in Sources */,
+				36EF8A8621F665D60000F473 /* BaseViewController.swift in Sources */,
+				367FED1D21FAB46B00DA026A /* API.swift in Sources */,
 				36EF8A8421F665D60000F473 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

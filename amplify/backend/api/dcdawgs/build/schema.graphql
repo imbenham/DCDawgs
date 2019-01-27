@@ -1,0 +1,132 @@
+type User {
+  id: ID!
+  first_name: String!
+  last_name: String!
+  email: String
+  alum: Boolean
+  honorary_alum: Boolean
+  grad_year: Int
+  moved_to_dc: Int
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelUserConnection {
+  items: [User]
+  nextToken: String
+}
+
+input ModelStringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+}
+
+input ModelIDFilterInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+}
+
+input ModelIntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  contains: Int
+  notContains: Int
+  between: [Int]
+}
+
+input ModelFloatFilterInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  contains: Float
+  notContains: Float
+  between: [Float]
+}
+
+input ModelBooleanFilterInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelUserFilterInput {
+  id: ModelIDFilterInput
+  first_name: ModelStringFilterInput
+  last_name: ModelStringFilterInput
+  email: ModelStringFilterInput
+  alum: ModelBooleanFilterInput
+  honorary_alum: ModelBooleanFilterInput
+  grad_year: ModelIntFilterInput
+  moved_to_dc: ModelIntFilterInput
+  and: [ModelUserFilterInput]
+  or: [ModelUserFilterInput]
+  not: ModelUserFilterInput
+}
+
+type Query {
+  getUser(id: ID!): User
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
+}
+
+input CreateUserInput {
+  id: ID
+  first_name: String!
+  last_name: String!
+  email: String
+  alum: Boolean
+  honorary_alum: Boolean
+  grad_year: Int
+  moved_to_dc: Int
+}
+
+input UpdateUserInput {
+  id: ID!
+  first_name: String
+  last_name: String
+  email: String
+  alum: Boolean
+  honorary_alum: Boolean
+  grad_year: Int
+  moved_to_dc: Int
+}
+
+input DeleteUserInput {
+  id: ID
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User
+  updateUser(input: UpdateUserInput!): User
+  deleteUser(input: DeleteUserInput!): User
+}
+
+type Subscription {
+  onCreateUser: User @aws_subscribe(mutations: ["createUser"])
+  onUpdateUser: User @aws_subscribe(mutations: ["updateUser"])
+  onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"])
+}

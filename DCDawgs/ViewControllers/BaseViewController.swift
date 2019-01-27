@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BaseViewController.swift
 //  DCDawgs
 //
 //  Created by Isaac Benham on 1/21/19.
@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import AWSAppSync
 
-class ViewController: UIViewController {
-
+class BaseViewController: UIViewController {
+    
+    var appSyncClient: AWSAppSyncClient? {
+        return AppDelegate.shared.appSyncClient
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        print("App sync client: \(String(describing: appSyncClient))")
     }
 
 
