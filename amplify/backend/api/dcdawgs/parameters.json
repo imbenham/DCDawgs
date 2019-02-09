@@ -1,7 +1,8 @@
 {
     "AppSyncApiName": "dcdawgs",
-    "schemaGraphql": "s3://awgs-20190122225405-deployment/amplify-appsync-files/schema.graphql.1549742773562",
+    "schemaGraphql": "s3://awgs-20190122225405-deployment/amplify-appsync-files/schema.graphql.1549743708630",
     "ResolverBucket": "awgs-20190122225405-deployment",
     "ResolverRootKey": "amplify-appsync-files",
-    "DeploymentTimestamp": "1549742773562"
+    "DeploymentTimestamp": "1549743708630",
+    "APIKeyExpirationEpoch": -1
 }
