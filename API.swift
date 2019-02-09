@@ -20,7 +20,7 @@ public struct CreateUserInput: GraphQLMapConvertible {
 
   public var firstName: String {
     get {
-      return graphQLMap["firstName"] as! String
+      return graphQLMap["first_name"] as! String
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "firstName")
@@ -29,10 +29,10 @@ public struct CreateUserInput: GraphQLMapConvertible {
 
   public var lastName: String {
     get {
-      return graphQLMap["lastName"] as! String
+      return graphQLMap["last_name"] as! String
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "lastName")
+      graphQLMap.updateValue(newValue, forKey: "last_name")
     }
   }
 
@@ -56,28 +56,28 @@ public struct CreateUserInput: GraphQLMapConvertible {
 
   public var honoraryAlum: Bool? {
     get {
-      return graphQLMap["honoraryAlum"] as! Bool?
+      return graphQLMap["honorary_alum"] as! Bool?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "honoraryAlum")
+      graphQLMap.updateValue(newValue, forKey: "honorary_alum")
     }
   }
 
   public var gradYear: Int? {
     get {
-      return graphQLMap["gradYear"] as! Int?
+      return graphQLMap["grad_year"] as! Int?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "gradYear")
+      graphQLMap.updateValue(newValue, forKey: "grad_year")
     }
   }
 
   public var movedToDc: Int? {
     get {
-      return graphQLMap["movedToDc"] as! Int?
+      return graphQLMap["moved_to_dc"] as! Int?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "movedToDc")
+      graphQLMap.updateValue(newValue, forKey: "moved_to_dc")
     }
   }
 }
@@ -100,19 +100,19 @@ public struct UpdateUserInput: GraphQLMapConvertible {
 
   public var firstName: String? {
     get {
-      return graphQLMap["firstName"] as! String?
+      return graphQLMap["first_name"] as! String?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "firstName")
+      graphQLMap.updateValue(newValue, forKey: "first_name")
     }
   }
 
   public var lastName: String? {
     get {
-      return graphQLMap["lastName"] as! String?
+      return graphQLMap["last_name"] as! String?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "lastName")
+      graphQLMap.updateValue(newValue, forKey: "last_name")
     }
   }
 
@@ -136,28 +136,28 @@ public struct UpdateUserInput: GraphQLMapConvertible {
 
   public var honoraryAlum: Bool? {
     get {
-      return graphQLMap["honoraryAlum"] as! Bool?
+      return graphQLMap["honorary_alum"] as! Bool?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "honoraryAlum")
+      graphQLMap.updateValue(newValue, forKey: "honorary_alum")
     }
   }
 
   public var gradYear: Int? {
     get {
-      return graphQLMap["gradYear"] as! Int?
+      return graphQLMap["grad_year"] as! Int?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "gradYear")
+      graphQLMap.updateValue(newValue, forKey: "grad_year")
     }
   }
 
   public var movedToDc: Int? {
     get {
-      return graphQLMap["movedToDc"] as! Int?
+      return graphQLMap["moved_to_dc"] as! Int?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "movedToDc")
+      graphQLMap.updateValue(newValue, forKey: "moved_to_dc")
     }
   }
 }
@@ -197,19 +197,19 @@ public struct ModelUserFilterInput: GraphQLMapConvertible {
 
   public var firstName: ModelStringFilterInput? {
     get {
-      return graphQLMap["firstName"] as! ModelStringFilterInput?
+      return graphQLMap["first_name"] as! ModelStringFilterInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "firstName")
+      graphQLMap.updateValue(newValue, forKey: "first_name")
     }
   }
 
   public var lastName: ModelStringFilterInput? {
     get {
-      return graphQLMap["lastName"] as! ModelStringFilterInput?
+      return graphQLMap["last_name"] as! ModelStringFilterInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "lastName")
+      graphQLMap.updateValue(newValue, forKey: "last_name")
     }
   }
 
@@ -233,28 +233,28 @@ public struct ModelUserFilterInput: GraphQLMapConvertible {
 
   public var honoraryAlum: ModelBooleanFilterInput? {
     get {
-      return graphQLMap["honoraryAlum"] as! ModelBooleanFilterInput?
+      return graphQLMap["honorary_alum"] as! ModelBooleanFilterInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "honoraryAlum")
+      graphQLMap.updateValue(newValue, forKey: "honorary_alum")
     }
   }
 
   public var gradYear: ModelIntFilterInput? {
     get {
-      return graphQLMap["gradYear"] as! ModelIntFilterInput?
+      return graphQLMap["grad_year"] as! ModelIntFilterInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "gradYear")
+      graphQLMap.updateValue(newValue, forKey: "grad_year")
     }
   }
 
   public var movedToDc: ModelIntFilterInput? {
     get {
-      return graphQLMap["movedToDc"] as! ModelIntFilterInput?
+      return graphQLMap["moved_to_dc"] as! ModelIntFilterInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "movedToDc")
+      graphQLMap.updateValue(newValue, forKey: "moved_to_dc")
     }
   }
 

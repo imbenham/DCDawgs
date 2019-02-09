@@ -15,6 +15,10 @@ class BaseViewController: UIViewController {
         return AppDelegate.shared.appSyncClient
     }
     
+    var sharedUserManager: UserManager {
+        return AppDelegate.shared.userManager
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

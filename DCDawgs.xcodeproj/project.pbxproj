@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		367FED2421FE290B00DA026A /* API_Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 367FED2321FE290B00DA026A /* API_Config.plist */; };
 		367FED2621FE411A00DA026A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2521FE411A00DA026A /* API.swift */; };
 		367FED2821FE419900DA026A /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 367FED2721FE419900DA026A /* awsconfiguration.json */; };
 		367FED2A21FE4B5100DA026A /* RootLandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2921FE4B5100DA026A /* RootLandingPageViewController.swift */; };
+		367FED2D21FE99C800DA026A /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2C21FE99C800DA026A /* UserManager.swift */; };
+		367FED2F22000A3E00DA026A /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2E22000A3E00DA026A /* CurrentUser.swift */; };
 		36EF8A8421F665D60000F473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF8A8321F665D60000F473 /* AppDelegate.swift */; };
 		36EF8A8621F665D60000F473 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF8A8521F665D60000F473 /* BaseViewController.swift */; };
 		36EF8A8921F665D60000F473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36EF8A8721F665D60000F473 /* Main.storyboard */; };
@@ -21,10 +22,11 @@
 
 /* Begin PBXFileReference section */
 		06276BCDA4FD120D09C6AE9A /* Pods-DCDawgs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCDawgs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCDawgs/Pods-DCDawgs.debug.xcconfig"; sourceTree = "<group>"; };
-		367FED2321FE290B00DA026A /* API_Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_Config.plist; sourceTree = "<group>"; };
 		367FED2521FE411A00DA026A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		367FED2721FE419900DA026A /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		367FED2921FE4B5100DA026A /* RootLandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootLandingPageViewController.swift; sourceTree = "<group>"; };
+		367FED2C21FE99C800DA026A /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		367FED2E22000A3E00DA026A /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		36EF8A8021F665D60000F473 /* DCDawgs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCDawgs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EF8A8321F665D60000F473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36EF8A8521F665D60000F473 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -53,7 +55,6 @@
 			children = (
 				367FED2721FE419900DA026A /* awsconfiguration.json */,
 				367FED2521FE411A00DA026A /* API.swift */,
-				367FED2321FE290B00DA026A /* API_Config.plist */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -72,6 +73,15 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		367FED2B21FE999F00DA026A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				367FED2C21FE99C800DA026A /* UserManager.swift */,
+				367FED2E22000A3E00DA026A /* CurrentUser.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		36EF8A7721F665D60000F473 = {
@@ -98,6 +108,7 @@
 				36EF8A8321F665D60000F473 /* AppDelegate.swift */,
 				367FED1E21FAB7B700DA026A /* APIClient */,
 				367FED1F21FAB7E300DA026A /* ViewControllers */,
+				367FED2B21FE999F00DA026A /* Model */,
 				367FED2021FAB80300DA026A /* Extensions */,
 				36EF8A8721F665D60000F473 /* Main.storyboard */,
 				36EF8A8A21F665DD0000F473 /* Assets.xcassets */,
@@ -188,7 +199,6 @@
 				36EF8A8E21F665DD0000F473 /* LaunchScreen.storyboard in Resources */,
 				36EF8A8B21F665DD0000F473 /* Assets.xcassets in Resources */,
 				36EF8A8921F665D60000F473 /* Main.storyboard in Resources */,
-				367FED2421FE290B00DA026A /* API_Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +269,8 @@
 				36EF8A8621F665D60000F473 /* BaseViewController.swift in Sources */,
 				367FED2621FE411A00DA026A /* API.swift in Sources */,
 				36EF8A8421F665D60000F473 /* AppDelegate.swift in Sources */,
+				367FED2D21FE99C800DA026A /* UserManager.swift in Sources */,
+				367FED2F22000A3E00DA026A /* CurrentUser.swift in Sources */,
 				367FED2A21FE4B5100DA026A /* RootLandingPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
