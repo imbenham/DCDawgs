@@ -8,3 +8,59 @@ type User @model {
   grad_year: Int
   moved_to_dc: Int
 }
+
+type Event {
+  id: ID!
+  groupId: String
+  location: String
+  date: AWSDateTime!
+  organizer: User
+  going: [User]!
+  maybeGoing: [User]!
+  notGoing: [User]!
+}
+
+type Group {
+  id: ID!
+  name: Strin!
+  organizer: User
+  members: [User]!
+  type: GroupType!
+}
+
+type Forum {
+  id: ID!
+  eventId: String
+  groupId: String
+  name: String
+  posts: [Post]!
+}
+
+type Gallery {
+  id: ID!
+  eventId: String
+  groupId: String
+  name: String
+  images: [Image]!
+}
+
+type Post {
+  authorId: ID!
+  postId: String!
+  forumId: String!
+  parrentPostId: String
+  content: String!
+  image: Image
+  timestamp: AWSTimestamp
+}
+
+type Image {
+  id: ID!
+  posterId: String
+}
+
+enum GroupType {
+  team
+  other
+}
+
