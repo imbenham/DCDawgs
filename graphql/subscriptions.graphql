@@ -7,6 +7,7 @@ subscription OnCreateUser {
     email
     alum
     honorary_alum
+    bio
     grad_year
     moved_to_dc
   }
@@ -19,6 +20,7 @@ subscription OnUpdateUser {
     email
     alum
     honorary_alum
+    bio
     grad_year
     moved_to_dc
   }
@@ -31,7 +33,731 @@ subscription OnDeleteUser {
     email
     alum
     honorary_alum
+    bio
     grad_year
     moved_to_dc
+  }
+}
+subscription OnCreateEvent {
+  onCreateEvent {
+    id
+    name
+    going {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    maybeGoing {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    notGoing {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    date
+    group {
+      id
+      name
+      members {
+        id
+        first_name
+        last_name
+        email
+        alum
+        honorary_alum
+        bio
+        grad_year
+        moved_to_dc
+      }
+      events {
+        nextToken
+      }
+      type
+      organizer {
+        id
+        first_name
+        last_name
+        email
+        alum
+        honorary_alum
+        bio
+        grad_year
+        moved_to_dc
+      }
+    }
+    location
+    organizer {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    tags
+  }
+}
+subscription OnUpdateEvent {
+  onUpdateEvent {
+    id
+    name
+    going {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    maybeGoing {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    notGoing {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    date
+    group {
+      id
+      name
+      members {
+        id
+        first_name
+        last_name
+        email
+        alum
+        honorary_alum
+        bio
+        grad_year
+        moved_to_dc
+      }
+      events {
+        nextToken
+      }
+      type
+      organizer {
+        id
+        first_name
+        last_name
+        email
+        alum
+        honorary_alum
+        bio
+        grad_year
+        moved_to_dc
+      }
+    }
+    location
+    organizer {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    tags
+  }
+}
+subscription OnDeleteEvent {
+  onDeleteEvent {
+    id
+    name
+    going {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    maybeGoing {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    notGoing {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    date
+    group {
+      id
+      name
+      members {
+        id
+        first_name
+        last_name
+        email
+        alum
+        honorary_alum
+        bio
+        grad_year
+        moved_to_dc
+      }
+      events {
+        nextToken
+      }
+      type
+      organizer {
+        id
+        first_name
+        last_name
+        email
+        alum
+        honorary_alum
+        bio
+        grad_year
+        moved_to_dc
+      }
+    }
+    location
+    organizer {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    tags
+  }
+}
+subscription OnCreateGroup {
+  onCreateGroup {
+    id
+    name
+    members {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    events {
+      items {
+        id
+        name
+        date
+        location
+        tags
+      }
+      nextToken
+    }
+    type
+    organizer {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+  }
+}
+subscription OnUpdateGroup {
+  onUpdateGroup {
+    id
+    name
+    members {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    events {
+      items {
+        id
+        name
+        date
+        location
+        tags
+      }
+      nextToken
+    }
+    type
+    organizer {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+  }
+}
+subscription OnDeleteGroup {
+  onDeleteGroup {
+    id
+    name
+    members {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+    events {
+      items {
+        id
+        name
+        date
+        location
+        tags
+      }
+      nextToken
+    }
+    type
+    organizer {
+      id
+      first_name
+      last_name
+      email
+      alum
+      honorary_alum
+      bio
+      grad_year
+      moved_to_dc
+    }
+  }
+}
+subscription OnCreateForum {
+  onCreateForum {
+    id
+    posts {
+      items {
+        authorId
+        postId
+        content
+        tags
+        timestamp
+      }
+      nextToken
+    }
+    eventId
+    groupId
+  }
+}
+subscription OnUpdateForum {
+  onUpdateForum {
+    id
+    posts {
+      items {
+        authorId
+        postId
+        content
+        tags
+        timestamp
+      }
+      nextToken
+    }
+    eventId
+    groupId
+  }
+}
+subscription OnDeleteForum {
+  onDeleteForum {
+    id
+    posts {
+      items {
+        authorId
+        postId
+        content
+        tags
+        timestamp
+      }
+      nextToken
+    }
+    eventId
+    groupId
+  }
+}
+subscription OnCreateGallery {
+  onCreateGallery {
+    id
+    images {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    eventId
+    groupId
+    name
+  }
+}
+subscription OnUpdateGallery {
+  onUpdateGallery {
+    id
+    images {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    eventId
+    groupId
+    name
+  }
+}
+subscription OnDeleteGallery {
+  onDeleteGallery {
+    id
+    images {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    eventId
+    groupId
+    name
+  }
+}
+subscription OnCreatePost {
+  onCreatePost {
+    authorId
+    postId
+    forum {
+      id
+      posts {
+        nextToken
+      }
+      eventId
+      groupId
+    }
+    content
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    tags
+    timestamp
+  }
+}
+subscription OnUpdatePost {
+  onUpdatePost {
+    authorId
+    postId
+    forum {
+      id
+      posts {
+        nextToken
+      }
+      eventId
+      groupId
+    }
+    content
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    tags
+    timestamp
+  }
+}
+subscription OnDeletePost {
+  onDeletePost {
+    authorId
+    postId
+    forum {
+      id
+      posts {
+        nextToken
+      }
+      eventId
+      groupId
+    }
+    content
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    tags
+    timestamp
+  }
+}
+subscription OnCreateImage {
+  onCreateImage {
+    id
+    posterId
+    tags
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+  }
+}
+subscription OnUpdateImage {
+  onUpdateImage {
+    id
+    posterId
+    tags
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+  }
+}
+subscription OnDeleteImage {
+  onDeleteImage {
+    id
+    posterId
+    tags
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+  }
+}
+subscription OnCreateComment {
+  onCreateComment {
+    id
+    authorId
+    content
+    post {
+      authorId
+      postId
+      forum {
+        id
+        eventId
+        groupId
+      }
+      content
+      comments {
+        nextToken
+      }
+      image {
+        id
+        posterId
+        tags
+      }
+      tags
+      timestamp
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    timestamp
+  }
+}
+subscription OnUpdateComment {
+  onUpdateComment {
+    id
+    authorId
+    content
+    post {
+      authorId
+      postId
+      forum {
+        id
+        eventId
+        groupId
+      }
+      content
+      comments {
+        nextToken
+      }
+      image {
+        id
+        posterId
+        tags
+      }
+      tags
+      timestamp
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    timestamp
+  }
+}
+subscription OnDeleteComment {
+  onDeleteComment {
+    id
+    authorId
+    content
+    post {
+      authorId
+      postId
+      forum {
+        id
+        eventId
+        groupId
+      }
+      content
+      comments {
+        nextToken
+      }
+      image {
+        id
+        posterId
+        tags
+      }
+      tags
+      timestamp
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    timestamp
   }
 }

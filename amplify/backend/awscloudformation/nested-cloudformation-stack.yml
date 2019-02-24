@@ -83,12 +83,10 @@
 			"Properties": {
 				"TemplateURL": "https://s3.amazonaws.com/awgs-20190122225405-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"Parameters": {
-					"AppSyncApiName": "dcdawgs",
-					"schemaGraphql": "s3://awgs-20190122225405-deployment/amplify-appsync-files/schema.graphql.1549744170018",
+					"schemaGraphql": "s3://awgs-20190122225405-deployment/amplify-appsync-files/schema.graphql.1551041218466",
 					"ResolverBucket": "awgs-20190122225405-deployment",
 					"ResolverRootKey": "amplify-appsync-files",
-					"DeploymentTimestamp": "1549744170018",
-					"APIKeyExpirationEpoch": -1
+					"DeploymentTimestamp": "1551041218466"
 				}
 			}
 		},

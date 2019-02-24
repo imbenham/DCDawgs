@@ -5,58 +5,73 @@ type User @model {
   email: String
   alum: Boolean
   honorary_alum: Boolean
+  bio: String
   grad_year: Int
   moved_to_dc: Int
 }
 
-type Event {
+type Event @model{
   id: ID!
-  groupId: String
-  location: String
-  date: AWSDateTime!
-  organizer: User
+  name: String!
   going: [User]!
   maybeGoing: [User]!
   notGoing: [User]!
-}
-
-type Group {
-  id: ID!
-  name: Strin!
+  date: AWSDateTime!
+  group: Group @connection(name:"GroupEvents")
+  location: String
   organizer: User
+  tags: [String]!
+}
+
+type Group @model{
+  id: ID!
+  name: String!
   members: [User]!
+  events: [Event] @connection(name:"GroupEvents")
   type: GroupType!
+  organizer: User
 }
 
-type Forum {
+type Forum @model{
   id: ID!
+  posts: [Post] @connection(name:"ForumPosts", sortField:"timestamp")
   eventId: String
   groupId: String
-  name: String
-  posts: [Post]!
 }
 
-type Gallery {
+type Gallery @model{
   id: ID!
-  eventId: String
-  groupId: String
-  name: String
   images: [Image]!
+  eventId: String
+  groupId: String
+  name: String
 }
 
-type Post {
+type Post @model{
   authorId: ID!
   postId: String!
-  forumId: String!
-  parrentPostId: String
+  forum: Forum! @connection(name:"ForumPosts", sortField:"timestamp")
   content: String!
+  comments: [Comment] @connection(name: "PostComments", sortField: "timestamp")
   image: Image
-  timestamp: AWSTimestamp
+  tags: [String]!
+  timestamp: AWSTimestamp!
 }
 
-type Image {
+type Image @model{
   id: ID!
   posterId: String
+  tags: [String]!
+  comments: [Comment] @connection(name: "ImageComments", sortField: "timestamp")
+}
+
+type Comment @model {
+    id: ID!
+    authorId: String!
+    content: String!
+    post: Post @connection(name: "PostComments", sortField: "timestamp")
+    image: Image @connection(name: "ImageComments", sortField: "timestamp")
+    timestamp: AWSTimestamp!
 }
 
 enum GroupType {

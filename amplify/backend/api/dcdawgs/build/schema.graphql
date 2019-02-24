@@ -5,8 +5,78 @@ type User {
   email: String
   alum: Boolean
   honorary_alum: Boolean
+  bio: String
   grad_year: Int
   moved_to_dc: Int
+}
+
+type Event {
+  id: ID!
+  name: String!
+  going: [User]!
+  maybeGoing: [User]!
+  notGoing: [User]!
+  date: AWSDateTime!
+  group: Group
+  location: String
+  organizer: User
+  tags: [String]!
+}
+
+type Group {
+  id: ID!
+  name: String!
+  members: [User]!
+  events(filter: ModelEventFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelEventConnection
+  type: GroupType!
+  organizer: User
+}
+
+type Forum {
+  id: ID!
+  posts(filter: ModelPostFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelPostConnection
+  eventId: String
+  groupId: String
+}
+
+type Gallery {
+  id: ID!
+  images: [Image]!
+  eventId: String
+  groupId: String
+  name: String
+}
+
+type Post {
+  authorId: ID!
+  postId: String!
+  forum: Forum!
+  content: String!
+  comments(filter: ModelCommentFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelCommentConnection
+  image: Image
+  tags: [String]!
+  timestamp: AWSTimestamp!
+}
+
+type Image {
+  id: ID!
+  posterId: String
+  tags: [String]!
+  comments(filter: ModelCommentFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelCommentConnection
+}
+
+type Comment {
+  id: ID!
+  authorId: String!
+  content: String!
+  post: Post
+  image: Image
+  timestamp: AWSTimestamp!
+}
+
+enum GroupType {
+  team
+  other
 }
 
 enum ModelSortDirection {
@@ -81,6 +151,7 @@ input ModelUserFilterInput {
   email: ModelStringFilterInput
   alum: ModelBooleanFilterInput
   honorary_alum: ModelBooleanFilterInput
+  bio: ModelStringFilterInput
   grad_year: ModelIntFilterInput
   moved_to_dc: ModelIntFilterInput
   and: [ModelUserFilterInput]
@@ -91,6 +162,20 @@ input ModelUserFilterInput {
 type Query {
   getUser(id: ID!): User
   listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
+  getEvent(id: ID!): Event
+  listEvents(filter: ModelEventFilterInput, limit: Int, nextToken: String): ModelEventConnection
+  getGroup(id: ID!): Group
+  listGroups(filter: ModelGroupFilterInput, limit: Int, nextToken: String): ModelGroupConnection
+  getForum(id: ID!): Forum
+  listForums(filter: ModelForumFilterInput, limit: Int, nextToken: String): ModelForumConnection
+  getGallery(id: ID!): Gallery
+  listGallerys(filter: ModelGalleryFilterInput, limit: Int, nextToken: String): ModelGalleryConnection
+  getPost(id: ID!): Post
+  listPosts(filter: ModelPostFilterInput, limit: Int, nextToken: String): ModelPostConnection
+  getImage(id: ID!): Image
+  listImages(filter: ModelImageFilterInput, limit: Int, nextToken: String): ModelImageConnection
+  getComment(id: ID!): Comment
+  listComments(filter: ModelCommentFilterInput, limit: Int, nextToken: String): ModelCommentConnection
 }
 
 input CreateUserInput {
@@ -100,6 +185,7 @@ input CreateUserInput {
   email: String
   alum: Boolean
   honorary_alum: Boolean
+  bio: String
   grad_year: Int
   moved_to_dc: Int
 }
@@ -111,6 +197,7 @@ input UpdateUserInput {
   email: String
   alum: Boolean
   honorary_alum: Boolean
+  bio: String
   grad_year: Int
   moved_to_dc: Int
 }
@@ -123,10 +210,287 @@ type Mutation {
   createUser(input: CreateUserInput!): User
   updateUser(input: UpdateUserInput!): User
   deleteUser(input: DeleteUserInput!): User
+  createEvent(input: CreateEventInput!): Event
+  updateEvent(input: UpdateEventInput!): Event
+  deleteEvent(input: DeleteEventInput!): Event
+  createGroup(input: CreateGroupInput!): Group
+  updateGroup(input: UpdateGroupInput!): Group
+  deleteGroup(input: DeleteGroupInput!): Group
+  createForum(input: CreateForumInput!): Forum
+  updateForum(input: UpdateForumInput!): Forum
+  deleteForum(input: DeleteForumInput!): Forum
+  createGallery(input: CreateGalleryInput!): Gallery
+  updateGallery(input: UpdateGalleryInput!): Gallery
+  deleteGallery(input: DeleteGalleryInput!): Gallery
+  createPost(input: CreatePostInput!): Post
+  updatePost(input: UpdatePostInput!): Post
+  deletePost(input: DeletePostInput!): Post
+  createImage(input: CreateImageInput!): Image
+  updateImage(input: UpdateImageInput!): Image
+  deleteImage(input: DeleteImageInput!): Image
+  createComment(input: CreateCommentInput!): Comment
+  updateComment(input: UpdateCommentInput!): Comment
+  deleteComment(input: DeleteCommentInput!): Comment
 }
 
 type Subscription {
   onCreateUser: User @aws_subscribe(mutations: ["createUser"])
   onUpdateUser: User @aws_subscribe(mutations: ["updateUser"])
   onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"])
+  onCreateEvent: Event @aws_subscribe(mutations: ["createEvent"])
+  onUpdateEvent: Event @aws_subscribe(mutations: ["updateEvent"])
+  onDeleteEvent: Event @aws_subscribe(mutations: ["deleteEvent"])
+  onCreateGroup: Group @aws_subscribe(mutations: ["createGroup"])
+  onUpdateGroup: Group @aws_subscribe(mutations: ["updateGroup"])
+  onDeleteGroup: Group @aws_subscribe(mutations: ["deleteGroup"])
+  onCreateForum: Forum @aws_subscribe(mutations: ["createForum"])
+  onUpdateForum: Forum @aws_subscribe(mutations: ["updateForum"])
+  onDeleteForum: Forum @aws_subscribe(mutations: ["deleteForum"])
+  onCreateGallery: Gallery @aws_subscribe(mutations: ["createGallery"])
+  onUpdateGallery: Gallery @aws_subscribe(mutations: ["updateGallery"])
+  onDeleteGallery: Gallery @aws_subscribe(mutations: ["deleteGallery"])
+  onCreatePost: Post @aws_subscribe(mutations: ["createPost"])
+  onUpdatePost: Post @aws_subscribe(mutations: ["updatePost"])
+  onDeletePost: Post @aws_subscribe(mutations: ["deletePost"])
+  onCreateImage: Image @aws_subscribe(mutations: ["createImage"])
+  onUpdateImage: Image @aws_subscribe(mutations: ["updateImage"])
+  onDeleteImage: Image @aws_subscribe(mutations: ["deleteImage"])
+  onCreateComment: Comment @aws_subscribe(mutations: ["createComment"])
+  onUpdateComment: Comment @aws_subscribe(mutations: ["updateComment"])
+  onDeleteComment: Comment @aws_subscribe(mutations: ["deleteComment"])
+}
+
+type ModelEventConnection {
+  items: [Event]
+  nextToken: String
+}
+
+input ModelEventFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  date: ModelStringFilterInput
+  location: ModelStringFilterInput
+  tags: ModelStringFilterInput
+  and: [ModelEventFilterInput]
+  or: [ModelEventFilterInput]
+  not: ModelEventFilterInput
+}
+
+input CreateEventInput {
+  id: ID
+  name: String!
+  date: AWSDateTime!
+  location: String
+  tags: [String]!
+  eventGroupId: ID
+}
+
+input UpdateEventInput {
+  id: ID!
+  name: String
+  date: AWSDateTime
+  location: String
+  tags: [String]
+  eventGroupId: ID
+}
+
+input DeleteEventInput {
+  id: ID
+}
+
+type ModelGroupConnection {
+  items: [Group]
+  nextToken: String
+}
+
+input ModelGroupFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  and: [ModelGroupFilterInput]
+  or: [ModelGroupFilterInput]
+  not: ModelGroupFilterInput
+}
+
+input CreateGroupInput {
+  id: ID
+  name: String!
+  type: GroupType!
+}
+
+input UpdateGroupInput {
+  id: ID!
+  name: String
+  type: GroupType
+}
+
+input DeleteGroupInput {
+  id: ID
+}
+
+type ModelForumConnection {
+  items: [Forum]
+  nextToken: String
+}
+
+input ModelForumFilterInput {
+  id: ModelIDFilterInput
+  eventId: ModelStringFilterInput
+  groupId: ModelStringFilterInput
+  and: [ModelForumFilterInput]
+  or: [ModelForumFilterInput]
+  not: ModelForumFilterInput
+}
+
+input CreateForumInput {
+  id: ID
+  eventId: String
+  groupId: String
+}
+
+input UpdateForumInput {
+  id: ID!
+  eventId: String
+  groupId: String
+}
+
+input DeleteForumInput {
+  id: ID
+}
+
+type ModelGalleryConnection {
+  items: [Gallery]
+  nextToken: String
+}
+
+input ModelGalleryFilterInput {
+  id: ModelIDFilterInput
+  eventId: ModelStringFilterInput
+  groupId: ModelStringFilterInput
+  name: ModelStringFilterInput
+  and: [ModelGalleryFilterInput]
+  or: [ModelGalleryFilterInput]
+  not: ModelGalleryFilterInput
+}
+
+input CreateGalleryInput {
+  id: ID
+  eventId: String
+  groupId: String
+  name: String
+}
+
+input UpdateGalleryInput {
+  id: ID!
+  eventId: String
+  groupId: String
+  name: String
+}
+
+input DeleteGalleryInput {
+  id: ID
+}
+
+type ModelPostConnection {
+  items: [Post]
+  nextToken: String
+}
+
+input ModelPostFilterInput {
+  authorId: ModelIDFilterInput
+  postId: ModelStringFilterInput
+  content: ModelStringFilterInput
+  tags: ModelStringFilterInput
+  timestamp: ModelIntFilterInput
+  and: [ModelPostFilterInput]
+  or: [ModelPostFilterInput]
+  not: ModelPostFilterInput
+}
+
+input CreatePostInput {
+  authorId: ID!
+  postId: String!
+  content: String!
+  tags: [String]!
+  timestamp: AWSTimestamp!
+  postForumId: ID!
+}
+
+input UpdatePostInput {
+  authorId: ID
+  postId: String
+  content: String
+  tags: [String]
+  timestamp: AWSTimestamp
+  postForumId: ID
+}
+
+input DeletePostInput {
+  id: ID
+}
+
+type ModelImageConnection {
+  items: [Image]
+  nextToken: String
+}
+
+input ModelImageFilterInput {
+  id: ModelIDFilterInput
+  posterId: ModelStringFilterInput
+  tags: ModelStringFilterInput
+  and: [ModelImageFilterInput]
+  or: [ModelImageFilterInput]
+  not: ModelImageFilterInput
+}
+
+input CreateImageInput {
+  id: ID
+  posterId: String
+  tags: [String]!
+}
+
+input UpdateImageInput {
+  id: ID!
+  posterId: String
+  tags: [String]
+}
+
+input DeleteImageInput {
+  id: ID
+}
+
+type ModelCommentConnection {
+  items: [Comment]
+  nextToken: String
+}
+
+input ModelCommentFilterInput {
+  id: ModelIDFilterInput
+  authorId: ModelStringFilterInput
+  content: ModelStringFilterInput
+  timestamp: ModelIntFilterInput
+  and: [ModelCommentFilterInput]
+  or: [ModelCommentFilterInput]
+  not: ModelCommentFilterInput
+}
+
+input CreateCommentInput {
+  id: ID
+  authorId: String!
+  content: String!
+  timestamp: AWSTimestamp!
+  commentPostId: ID
+  commentImageId: ID
+}
+
+input UpdateCommentInput {
+  id: ID!
+  authorId: String
+  content: String
+  timestamp: AWSTimestamp
+  commentPostId: ID
+  commentImageId: ID
+}
+
+input DeleteCommentInput {
+  id: ID
 }
