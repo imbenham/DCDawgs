@@ -2,13 +2,14 @@
 query GetUser($id: ID!) {
   getUser(id: $id) {
     id
-    first_name
-    last_name
+    firstName
+    lastName
     email
     alum
-    honorary_alum
-    grad_year
-    moved_to_dc
+    honoraryAlum
+    bio
+    gradYear
+    movedToDc
   }
 }
 query ListUsers(
@@ -19,13 +20,468 @@ query ListUsers(
   listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
-      honorary_alum
-      grad_year
-      moved_to_dc
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    nextToken
+  }
+}
+query GetEvent($id: ID!) {
+  getEvent(id: $id) {
+    id
+    name
+    going {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    maybeGoing {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    notGoing {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    date
+    group {
+      id
+      name
+      members {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+      events {
+        nextToken
+      }
+      type
+      organizer {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+    }
+    location
+    organizer {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    tags
+  }
+}
+query ListEvents(
+  $filter: ModelEventFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      going {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+      maybeGoing {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+      notGoing {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+      date
+      group {
+        id
+        name
+      }
+      location
+      organizer {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+      tags
+    }
+    nextToken
+  }
+}
+query GetGroup($id: ID!) {
+  getGroup(id: $id) {
+    id
+    name
+    members {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    events {
+      items {
+        id
+        name
+        date
+        location
+        tags
+      }
+      nextToken
+    }
+    type
+    organizer {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+  }
+}
+query ListGroups(
+  $filter: ModelGroupFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listGroups(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      members {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+      events {
+        nextToken
+      }
+      type
+      organizer {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+    }
+    nextToken
+  }
+}
+query GetForum($id: ID!) {
+  getForum(id: $id) {
+    id
+    posts {
+      items {
+        authorId
+        postId
+        content
+        tags
+        timestamp
+      }
+      nextToken
+    }
+    eventId
+    groupId
+  }
+}
+query ListForums(
+  $filter: ModelForumFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listForums(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      posts {
+        nextToken
+      }
+      eventId
+      groupId
+    }
+    nextToken
+  }
+}
+query GetGallery($id: ID!) {
+  getGallery(id: $id) {
+    id
+    images {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    eventId
+    groupId
+    name
+  }
+}
+query ListGallerys(
+  $filter: ModelGalleryFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listGallerys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      images {
+        id
+        posterId
+        tags
+      }
+      eventId
+      groupId
+      name
+    }
+    nextToken
+  }
+}
+query GetPost($id: ID!) {
+  getPost(id: $id) {
+    authorId
+    postId
+    forum {
+      id
+      posts {
+        nextToken
+      }
+      eventId
+      groupId
+    }
+    content
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    tags
+    timestamp
+  }
+}
+query ListPosts(
+  $filter: ModelPostFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      authorId
+      postId
+      forum {
+        id
+        eventId
+        groupId
+      }
+      content
+      comments {
+        nextToken
+      }
+      image {
+        id
+        posterId
+        tags
+      }
+      tags
+      timestamp
+    }
+    nextToken
+  }
+}
+query GetImage($id: ID!) {
+  getImage(id: $id) {
+    id
+    posterId
+    tags
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+  }
+}
+query ListImages(
+  $filter: ModelImageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listImages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+query GetComment($id: ID!) {
+  getComment(id: $id) {
+    id
+    authorId
+    content
+    post {
+      authorId
+      postId
+      forum {
+        id
+        eventId
+        groupId
+      }
+      content
+      comments {
+        nextToken
+      }
+      image {
+        id
+        posterId
+        tags
+      }
+      tags
+      timestamp
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    timestamp
+  }
+}
+query ListComments(
+  $filter: ModelCommentFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      authorId
+      content
+      post {
+        authorId
+        postId
+        content
+        tags
+        timestamp
+      }
+      image {
+        id
+        posterId
+        tags
+      }
+      timestamp
     }
     nextToken
   }

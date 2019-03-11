@@ -11,9 +11,37 @@ import AWSMobileClient
 import AWSAppSync
 
 class RootLandingPageViewController: BaseViewController {
+    
+    let imageViewBG = UIImageView(frame: CGRect.zero)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserUpdateNotification(_:)), name: UserManager.currentUserUpdatedNotification, object: nil)
+        imageViewBG.image = UIImage(imageLiteralResourceName: "cool_dawg")
+        layoutImageView()
         configureForLoginState()
+        
+    }
+    
+    
+    private func layoutImageView() {
+        imageViewBG.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(imageViewBG)
+        let imageCenterX = NSLayoutConstraint(item: imageViewBG, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
+        let imageCntrY = NSLayoutConstraint(item: imageViewBG, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+        
+        view.addConstraints([imageCenterX, imageCntrY])
+        
+    }
+    
+    @objc func handleUserUpdateNotification(_ notification: Notification) {
+        if let user = UserManager.shared.currentUser {
+            routeUser(user)
+        } else {
+            if !AWSMobileClient.sharedInstance().isLoggedIn {
+                launchLoginController()
+            }
+        }
     }
     
     private func configureForLoginState() {
@@ -54,27 +82,52 @@ class RootLandingPageViewController: BaseViewController {
     }
     
     private func initializeUser() {
-        let user = AppDelegate.shared.userManager.getCurrentUser()
-        
-        user.andThen { user in
-            print("launch main landing page")
-            }.catch{ error in
-                 let error = error as NSError
-                 if let input = error.userInfo["input"] as? CreateUserInput {
-                    self.nextOnboardStageForUser(input)
+        if let currentUser = UserManager.shared.currentUser {
+            routeUser(currentUser)
+        } else {
+           AWSMobileClient.sharedInstance().getUserAttributes() { (userAttributes, error)  in
+                if let attribs = userAttributes {
+                    print(attribs)
+                    if let id = attribs["sub"], let email = attribs["email"] {
+                        UserManager.shared.getUserForId(id, email: email)
+                    }
                 } else {
-                    print("oh god everything is broken and it's all my fault")
+                    let errorMessage = "error getting user attributes: \(error?.localizedDescription ?? "no error provided")"
+                    print(errorMessage)
+                    AWSMobileClient.sharedInstance().signOut()
                 }
-                
+            }
+            
         }
     }
     
-    private func nextOnboardStageForUser(_ userInput: CreateUserInput) {
-        if userInput.firstName.isEmpty || userInput.lastName.isEmpty {
-            print("stage one!")
+    private func routeUser(_ user: CurrentUser) {
+        if user.firstName.isEmpty || user.lastName.isEmpty {
+            promptCreateProfile()
         } else {
             print("some other stage!")
         }
     }
     
+    private func promptCreateProfile() {
+        let cpv = CreateProfilePopUp.createFromNibWithDelegate(self)
+        cpv.alpha = 0.0
+        view.addSubview(cpv)
+        
+        cpv.center = view.center
+        
+        UIView.animate(withDuration: 0.25) {
+            cpv.alpha = 1.0
+        }
+    }
+    
+}
+
+extension RootLandingPageViewController: CreateProfileDelegate {
+    func handleCreateProfileRequest(_ request: CreateUserRequest, fromView: UIView) {
+        // do some stuff
+        UIView.animate(withDuration: 0.25, animations: {fromView.alpha = 0}) { completed in
+            fromView.removeFromSuperview()
+        }
+    }
 }

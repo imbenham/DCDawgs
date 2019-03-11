@@ -19,14 +19,14 @@
 				"securityType": "API_KEY",
 				"GraphQLAPIIdOutput": "llw4zd2jtzekrd5ahdbpus5i7y",
 				"GraphQLAPIEndpointOutput": "https://zth6wyoktndh5azqd5o6h4slli.appsync-api.us-east-1.amazonaws.com/graphql",
-				"GraphQLAPIKeyOutput": "da2-j6wkymtou5huzpolkaw5upeycm"
+				"GraphQLAPIKeyOutput": "da2-x3sapdm5ufghflbmvbkyqnynei"
 			},
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/awgs-20190122225405-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apidcdawgs"
 			},
-			"lastPushTimeStamp": "2019-02-24T21:31:52.099Z",
-			"lastPushDirHash": "gdOOE0inlyIkd2cLZp05jvGTxdw="
+			"lastPushTimeStamp": "2019-03-11T00:56:32.228Z",
+			"lastPushDirHash": "+HOBXe1OtKRddMeI81Ps3CBdlC8="
 		}
 	},
 	"auth": {
@@ -37,7 +37,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/awgs-20190122225405-deployment/amplify-cfn-templates/auth/cognitoa319255c-cloudformation-template.yml",
 				"logicalId": "authcognitoa319255c"
 			},
-			"lastPushTimeStamp": "2019-02-24T21:31:49.908Z",
+			"lastPushTimeStamp": "2019-03-11T00:56:30.496Z",
 			"output": {
 				"AppClientSecret": "5n66ihldlqinu25h3apblpidh42sor4kv4ahlasv575vmon0o59",
 				"UserPoolId": "us-east-1_ENu4HGdS4",
@@ -47,7 +47,7 @@
 				"IdentityPoolName": "cognitoa319255c_identitypool_a319255c",
 				"UserPoolName": "cognitoa319255c_userpool_a319255c"
 			},
-			"lastPushDirHash": "er6pR8Gv4TeTYvK4cZcy/Og9bWs="
+			"lastPushDirHash": "mXArtbLYpBeNitgLda2IX0YWGUs="
 		}
 	}
 }

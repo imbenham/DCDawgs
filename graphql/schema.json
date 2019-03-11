@@ -535,7 +535,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "first_name",
+          "name" : "firstName",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -550,7 +550,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "last_name",
+          "name" : "lastName",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -609,7 +609,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "grad_year",
+          "name" : "gradYear",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -620,7 +620,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "moved_to_dc",
+          "name" : "movedToDc",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -721,7 +721,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "first_name",
+          "name" : "firstName",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -730,7 +730,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "last_name",
+          "name" : "lastName",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -775,7 +775,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "grad_year",
+          "name" : "gradYear",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -784,7 +784,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "moved_to_dc",
+          "name" : "movedToDc",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -3417,7 +3417,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "first_name",
+          "name" : "firstName",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -3430,7 +3430,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "last_name",
+          "name" : "lastName",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -3479,7 +3479,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "grad_year",
+          "name" : "gradYear",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3488,7 +3488,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "moved_to_dc",
+          "name" : "movedToDc",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3519,7 +3519,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "first_name",
+          "name" : "firstName",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3528,7 +3528,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "last_name",
+          "name" : "lastName",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3573,7 +3573,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "grad_year",
+          "name" : "gradYear",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3582,7 +3582,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "moved_to_dc",
+          "name" : "movedToDc",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -5690,6 +5690,23 @@
         "onFragment" : false,
         "onField" : true
       }, {
+        "name" : "deprecated",
+        "description" : null,
+        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
+        "args" : [ {
+          "name" : "reason",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : "\"No longer supported\""
+        } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
         "name" : "aws_publish",
         "description" : "Tells the service which subscriptions will be published to when this mutation is called. This directive is deprecated use @aws_susbscribe directive instead.",
         "locations" : [ "FIELD_DEFINITION" ],
@@ -5727,23 +5744,6 @@
             }
           },
           "defaultValue" : null
-        } ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
-        "name" : "deprecated",
-        "description" : null,
-        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
-        "args" : [ {
-          "name" : "reason",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : "\"No longer supported\""
         } ],
         "onOperation" : false,
         "onFragment" : false,

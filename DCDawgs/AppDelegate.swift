@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         configureAwsAppSync()
-        
+        // init UserManager
+        let _ = UserManager.shared
         return true
     }
     
@@ -34,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //AppSync configuration & client initialization
             let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncClientInfo: AWSAppSyncClientInfo(),databaseURL: databaseURL)
             appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
-            
         } catch {
             print("Error initializing appsync client. \(error)")
         }

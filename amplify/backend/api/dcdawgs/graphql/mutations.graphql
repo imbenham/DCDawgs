@@ -2,36 +2,762 @@
 mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
     id
-    first_name
-    last_name
+    firstName
+    lastName
     email
     alum
-    honorary_alum
-    grad_year
-    moved_to_dc
+    honoraryAlum
+    bio
+    gradYear
+    movedToDc
   }
 }
 mutation UpdateUser($input: UpdateUserInput!) {
   updateUser(input: $input) {
     id
-    first_name
-    last_name
+    firstName
+    lastName
     email
     alum
-    honorary_alum
-    grad_year
-    moved_to_dc
+    honoraryAlum
+    bio
+    gradYear
+    movedToDc
   }
 }
 mutation DeleteUser($input: DeleteUserInput!) {
   deleteUser(input: $input) {
     id
-    first_name
-    last_name
+    firstName
+    lastName
     email
     alum
-    honorary_alum
-    grad_year
-    moved_to_dc
+    honoraryAlum
+    bio
+    gradYear
+    movedToDc
+  }
+}
+mutation CreateEvent($input: CreateEventInput!) {
+  createEvent(input: $input) {
+    id
+    name
+    going {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    maybeGoing {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    notGoing {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    date
+    group {
+      id
+      name
+      members {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+      events {
+        nextToken
+      }
+      type
+      organizer {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+    }
+    location
+    organizer {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    tags
+  }
+}
+mutation UpdateEvent($input: UpdateEventInput!) {
+  updateEvent(input: $input) {
+    id
+    name
+    going {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    maybeGoing {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    notGoing {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    date
+    group {
+      id
+      name
+      members {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+      events {
+        nextToken
+      }
+      type
+      organizer {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+    }
+    location
+    organizer {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    tags
+  }
+}
+mutation DeleteEvent($input: DeleteEventInput!) {
+  deleteEvent(input: $input) {
+    id
+    name
+    going {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    maybeGoing {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    notGoing {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    date
+    group {
+      id
+      name
+      members {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+      events {
+        nextToken
+      }
+      type
+      organizer {
+        id
+        firstName
+        lastName
+        email
+        alum
+        honoraryAlum
+        bio
+        gradYear
+        movedToDc
+      }
+    }
+    location
+    organizer {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    tags
+  }
+}
+mutation CreateGroup($input: CreateGroupInput!) {
+  createGroup(input: $input) {
+    id
+    name
+    members {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    events {
+      items {
+        id
+        name
+        date
+        location
+        tags
+      }
+      nextToken
+    }
+    type
+    organizer {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+  }
+}
+mutation UpdateGroup($input: UpdateGroupInput!) {
+  updateGroup(input: $input) {
+    id
+    name
+    members {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    events {
+      items {
+        id
+        name
+        date
+        location
+        tags
+      }
+      nextToken
+    }
+    type
+    organizer {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+  }
+}
+mutation DeleteGroup($input: DeleteGroupInput!) {
+  deleteGroup(input: $input) {
+    id
+    name
+    members {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+    events {
+      items {
+        id
+        name
+        date
+        location
+        tags
+      }
+      nextToken
+    }
+    type
+    organizer {
+      id
+      firstName
+      lastName
+      email
+      alum
+      honoraryAlum
+      bio
+      gradYear
+      movedToDc
+    }
+  }
+}
+mutation CreateForum($input: CreateForumInput!) {
+  createForum(input: $input) {
+    id
+    posts {
+      items {
+        authorId
+        postId
+        content
+        tags
+        timestamp
+      }
+      nextToken
+    }
+    eventId
+    groupId
+  }
+}
+mutation UpdateForum($input: UpdateForumInput!) {
+  updateForum(input: $input) {
+    id
+    posts {
+      items {
+        authorId
+        postId
+        content
+        tags
+        timestamp
+      }
+      nextToken
+    }
+    eventId
+    groupId
+  }
+}
+mutation DeleteForum($input: DeleteForumInput!) {
+  deleteForum(input: $input) {
+    id
+    posts {
+      items {
+        authorId
+        postId
+        content
+        tags
+        timestamp
+      }
+      nextToken
+    }
+    eventId
+    groupId
+  }
+}
+mutation CreateGallery($input: CreateGalleryInput!) {
+  createGallery(input: $input) {
+    id
+    images {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    eventId
+    groupId
+    name
+  }
+}
+mutation UpdateGallery($input: UpdateGalleryInput!) {
+  updateGallery(input: $input) {
+    id
+    images {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    eventId
+    groupId
+    name
+  }
+}
+mutation DeleteGallery($input: DeleteGalleryInput!) {
+  deleteGallery(input: $input) {
+    id
+    images {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    eventId
+    groupId
+    name
+  }
+}
+mutation CreatePost($input: CreatePostInput!) {
+  createPost(input: $input) {
+    authorId
+    postId
+    forum {
+      id
+      posts {
+        nextToken
+      }
+      eventId
+      groupId
+    }
+    content
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    tags
+    timestamp
+  }
+}
+mutation UpdatePost($input: UpdatePostInput!) {
+  updatePost(input: $input) {
+    authorId
+    postId
+    forum {
+      id
+      posts {
+        nextToken
+      }
+      eventId
+      groupId
+    }
+    content
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    tags
+    timestamp
+  }
+}
+mutation DeletePost($input: DeletePostInput!) {
+  deletePost(input: $input) {
+    authorId
+    postId
+    forum {
+      id
+      posts {
+        nextToken
+      }
+      eventId
+      groupId
+    }
+    content
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    tags
+    timestamp
+  }
+}
+mutation CreateImage($input: CreateImageInput!) {
+  createImage(input: $input) {
+    id
+    posterId
+    tags
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateImage($input: UpdateImageInput!) {
+  updateImage(input: $input) {
+    id
+    posterId
+    tags
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteImage($input: DeleteImageInput!) {
+  deleteImage(input: $input) {
+    id
+    posterId
+    tags
+    comments {
+      items {
+        id
+        authorId
+        content
+        timestamp
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateComment($input: CreateCommentInput!) {
+  createComment(input: $input) {
+    id
+    authorId
+    content
+    post {
+      authorId
+      postId
+      forum {
+        id
+        eventId
+        groupId
+      }
+      content
+      comments {
+        nextToken
+      }
+      image {
+        id
+        posterId
+        tags
+      }
+      tags
+      timestamp
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    timestamp
+  }
+}
+mutation UpdateComment($input: UpdateCommentInput!) {
+  updateComment(input: $input) {
+    id
+    authorId
+    content
+    post {
+      authorId
+      postId
+      forum {
+        id
+        eventId
+        groupId
+      }
+      content
+      comments {
+        nextToken
+      }
+      image {
+        id
+        posterId
+        tags
+      }
+      tags
+      timestamp
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    timestamp
+  }
+}
+mutation DeleteComment($input: DeleteCommentInput!) {
+  deleteComment(input: $input) {
+    id
+    authorId
+    content
+    post {
+      authorId
+      postId
+      forum {
+        id
+        eventId
+        groupId
+      }
+      content
+      comments {
+        nextToken
+      }
+      image {
+        id
+        posterId
+        tags
+      }
+      tags
+      timestamp
+    }
+    image {
+      id
+      posterId
+      tags
+      comments {
+        nextToken
+      }
+    }
+    timestamp
   }
 }

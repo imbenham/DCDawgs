@@ -1,6 +1,7 @@
 {
-    "schemaGraphql": "s3://awgs-20190122225405-deployment/amplify-appsync-files/schema.graphql.1551043779306",
+    "schemaGraphql": "s3://awgs-20190122225405-deployment/amplify-appsync-files/schema.graphql.1552265658284",
     "ResolverBucket": "awgs-20190122225405-deployment",
     "ResolverRootKey": "amplify-appsync-files",
-    "DeploymentTimestamp": "1551043779306"
+    "DeploymentTimestamp": "1552265658284",
+    "APIKeyExpirationEpoch": 1555200000
 }

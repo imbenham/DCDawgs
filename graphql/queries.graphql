@@ -2,14 +2,14 @@
 query GetUser($id: ID!) {
   getUser(id: $id) {
     id
-    first_name
-    last_name
+    firstName
+    lastName
     email
     alum
     honorary_alum
     bio
-    grad_year
-    moved_to_dc
+    gradYear
+    movedToDc
   }
 }
 query ListUsers(
@@ -20,14 +20,14 @@ query ListUsers(
   listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     nextToken
   }
@@ -38,36 +38,36 @@ query GetEvent($id: ID!) {
     name
     going {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     maybeGoing {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     notGoing {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     date
     group {
@@ -75,14 +75,14 @@ query GetEvent($id: ID!) {
       name
       members {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
       events {
         nextToken
@@ -90,27 +90,27 @@ query GetEvent($id: ID!) {
       type
       organizer {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
     }
     location
     organizer {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     tags
   }
@@ -126,36 +126,36 @@ query ListEvents(
       name
       going {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
       maybeGoing {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
       notGoing {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
       date
       group {
@@ -165,14 +165,14 @@ query ListEvents(
       location
       organizer {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
       tags
     }
@@ -185,14 +185,14 @@ query GetGroup($id: ID!) {
     name
     members {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     events {
       items {
@@ -207,14 +207,14 @@ query GetGroup($id: ID!) {
     type
     organizer {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
   }
 }
@@ -229,14 +229,14 @@ query ListGroups(
       name
       members {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
       events {
         nextToken
@@ -244,14 +244,14 @@ query ListGroups(
       type
       organizer {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
     }
     nextToken

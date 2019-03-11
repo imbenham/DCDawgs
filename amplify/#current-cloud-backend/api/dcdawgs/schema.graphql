@@ -1,13 +1,13 @@
 type User @model {
   id: ID!
-  first_name: String!
-  last_name: String!
+  firstName: String!
+  lastName: String!
   email: String
   alum: Boolean
-  honorary_alum: Boolean
+  honoraryAlum: Boolean
   bio: String
-  grad_year: Int
-  moved_to_dc: Int
+  gradYear: Int
+  movedToDc: Int
 }
 
 type Event @model{

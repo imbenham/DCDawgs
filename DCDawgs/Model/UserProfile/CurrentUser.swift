@@ -28,4 +28,14 @@ struct CurrentUser {
         gradYear = queryData.gradYear
         movedToDC = queryData.movedToDc
     }
-}
+    
+    init(_ mutationData: CreateUserMutation.Data.CreateUser) {
+        id = mutationData.id as String
+        firstName = mutationData.firstName
+        lastName = mutationData.lastName
+        email = mutationData.email
+        alum = mutationData.alum
+        honoraryAlum = mutationData.honoraryAlum ?? false
+        gradYear = mutationData.gradYear
+        movedToDC = mutationData.movedToDc
+    }}

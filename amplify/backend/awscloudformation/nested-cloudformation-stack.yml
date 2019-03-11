@@ -83,10 +83,11 @@
 			"Properties": {
 				"TemplateURL": "https://s3.amazonaws.com/awgs-20190122225405-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"Parameters": {
-					"schemaGraphql": "s3://awgs-20190122225405-deployment/amplify-appsync-files/schema.graphql.1551043779306",
+					"schemaGraphql": "s3://awgs-20190122225405-deployment/amplify-appsync-files/schema.graphql.1552265658284",
 					"ResolverBucket": "awgs-20190122225405-deployment",
 					"ResolverRootKey": "amplify-appsync-files",
-					"DeploymentTimestamp": "1551043779306"
+					"DeploymentTimestamp": "1552265658284",
+					"APIKeyExpirationEpoch": 1555200000
 				}
 			}
 		},
@@ -95,14 +96,8 @@
 			"Properties": {
 				"TemplateURL": "https://s3.amazonaws.com/awgs-20190122225405-deployment/amplify-cfn-templates/auth/cognitoa319255c-cloudformation-template.yml",
 				"Parameters": {
-					"identityPoolName": "cognitoa319255c_identitypool_a319255c",
-					"allowUnauthenticatedIdentities": false,
-					"thirdPartyAuth": false,
-					"lambdaLogPolicy": "cognitoa319255c_lambda_log_policy",
-					"openIdLambdaRoleName": "cognitoa319255c_openid_lambda_role",
-					"openIdRolePolicy": "cognitoa319255c_openid_pass_role_policy",
-					"openIdLambdaIAMPolicy": "cognitoa319255c_openid_lambda_iam_policy",
-					"openIdLogPolicy": "cognitoa319255c_openid_lambda_log_policy",
+					"resourceName": "cognitoa319255c",
+					"authSelections": "identityPoolAndUserPool",
 					"userPoolName": "cognitoa319255c_userpool_a319255c",
 					"autoVerifiedAttributes": "email",
 					"mfaConfiguration": "OFF",
@@ -130,13 +125,19 @@
 					"userpoolClientLogPolicy": "cognitoa319255c_userpoolclient_lambda_log_policy",
 					"userpoolClientLambdaPolicy": "cognitoa319255c_userpoolclient_lambda_iam_policy",
 					"userpoolClientSetAttributes": false,
+					"identityPoolName": "cognitoa319255c_identitypool_a319255c",
+					"allowUnauthenticatedIdentities": false,
+					"thirdPartyAuth": false,
+					"lambdaLogPolicy": "cognitoa319255c_lambda_log_policy",
+					"openIdLambdaRoleName": "cognitoa319255c_openid_lambda_role",
+					"openIdRolePolicy": "cognitoa319255c_openid_pass_role_policy",
+					"openIdLambdaIAMPolicy": "cognitoa319255c_openid_lambda_iam_policy",
+					"openIdLogPolicy": "cognitoa319255c_openid_lambda_log_policy",
 					"useDefault": "default",
 					"unAuthRoleName": "awgs-20190122225405-unauthRole",
 					"authRoleName": "awgs-20190122225405-authRole",
 					"unAuthRoleArn": "arn:aws:iam::502110803378:role/awgs-20190122225405-unauthRole",
-					"authRoleArn": "arn:aws:iam::502110803378:role/awgs-20190122225405-authRole",
-					"resourceName": "cognitoa319255c",
-					"authSelections": "identityPoolAndUserPool"
+					"authRoleArn": "arn:aws:iam::502110803378:role/awgs-20190122225405-authRole"
 				}
 			}
 		}

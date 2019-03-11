@@ -2,40 +2,40 @@
 mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
     id
-    first_name
-    last_name
+    firstName
+    lastName
     email
     alum
     honorary_alum
     bio
-    grad_year
-    moved_to_dc
+    gradYear
+    movedToDc
   }
 }
 mutation UpdateUser($input: UpdateUserInput!) {
   updateUser(input: $input) {
     id
-    first_name
-    last_name
+    firstName
+    lastName
     email
     alum
     honorary_alum
     bio
-    grad_year
-    moved_to_dc
+    gradYear
+    movedToDc
   }
 }
 mutation DeleteUser($input: DeleteUserInput!) {
   deleteUser(input: $input) {
     id
-    first_name
-    last_name
+    firstName
+    lastName
     email
     alum
     honorary_alum
     bio
-    grad_year
-    moved_to_dc
+    gradYear
+    movedToDc
   }
 }
 mutation CreateEvent($input: CreateEventInput!) {
@@ -44,36 +44,36 @@ mutation CreateEvent($input: CreateEventInput!) {
     name
     going {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     maybeGoing {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     notGoing {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     date
     group {
@@ -81,14 +81,14 @@ mutation CreateEvent($input: CreateEventInput!) {
       name
       members {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
       events {
         nextToken
@@ -96,27 +96,27 @@ mutation CreateEvent($input: CreateEventInput!) {
       type
       organizer {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
     }
     location
     organizer {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     tags
   }
@@ -127,36 +127,36 @@ mutation UpdateEvent($input: UpdateEventInput!) {
     name
     going {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     maybeGoing {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     notGoing {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     date
     group {
@@ -164,14 +164,14 @@ mutation UpdateEvent($input: UpdateEventInput!) {
       name
       members {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
       events {
         nextToken
@@ -179,27 +179,27 @@ mutation UpdateEvent($input: UpdateEventInput!) {
       type
       organizer {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
     }
     location
     organizer {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     tags
   }
@@ -210,36 +210,36 @@ mutation DeleteEvent($input: DeleteEventInput!) {
     name
     going {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     maybeGoing {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     notGoing {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     date
     group {
@@ -247,14 +247,14 @@ mutation DeleteEvent($input: DeleteEventInput!) {
       name
       members {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
       events {
         nextToken
@@ -262,27 +262,27 @@ mutation DeleteEvent($input: DeleteEventInput!) {
       type
       organizer {
         id
-        first_name
-        last_name
+        firstName
+        lastName
         email
         alum
         honorary_alum
         bio
-        grad_year
-        moved_to_dc
+        gradYear
+        movedToDc
       }
     }
     location
     organizer {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     tags
   }
@@ -293,14 +293,14 @@ mutation CreateGroup($input: CreateGroupInput!) {
     name
     members {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     events {
       items {
@@ -315,14 +315,14 @@ mutation CreateGroup($input: CreateGroupInput!) {
     type
     organizer {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
   }
 }
@@ -332,14 +332,14 @@ mutation UpdateGroup($input: UpdateGroupInput!) {
     name
     members {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     events {
       items {
@@ -354,14 +354,14 @@ mutation UpdateGroup($input: UpdateGroupInput!) {
     type
     organizer {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
   }
 }
@@ -371,14 +371,14 @@ mutation DeleteGroup($input: DeleteGroupInput!) {
     name
     members {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
     events {
       items {
@@ -393,14 +393,14 @@ mutation DeleteGroup($input: DeleteGroupInput!) {
     type
     organizer {
       id
-      first_name
-      last_name
+      firstName
+      lastName
       email
       alum
       honorary_alum
       bio
-      grad_year
-      moved_to_dc
+      gradYear
+      movedToDc
     }
   }
 }

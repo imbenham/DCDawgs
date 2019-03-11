@@ -6,7 +6,7 @@ public struct CreateUserInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   public init(id: GraphQLID? = nil, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-    graphQLMap = ["id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc]
+    graphQLMap = ["id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc]
   }
 
   public var id: GraphQLID? {
@@ -95,7 +95,7 @@ public struct UpdateUserInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   public init(id: GraphQLID, firstName: String? = nil, lastName: String? = nil, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-    graphQLMap = ["id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc]
+    graphQLMap = ["id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc]
   }
 
   public var id: GraphQLID {
@@ -1023,7 +1023,7 @@ public struct ModelUserFilterInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   public init(id: ModelIDFilterInput? = nil, firstName: ModelStringFilterInput? = nil, lastName: ModelStringFilterInput? = nil, email: ModelStringFilterInput? = nil, alum: ModelBooleanFilterInput? = nil, honoraryAlum: ModelBooleanFilterInput? = nil, bio: ModelStringFilterInput? = nil, gradYear: ModelIntFilterInput? = nil, movedToDc: ModelIntFilterInput? = nil, and: [ModelUserFilterInput?]? = nil, or: [ModelUserFilterInput?]? = nil, not: ModelUserFilterInput? = nil) {
-    graphQLMap = ["id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc, "and": and, "or": or, "not": not]
+    graphQLMap = ["id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc, "and": and, "or": or, "not": not]
   }
 
   public var id: ModelIDFilterInput? {
@@ -1927,7 +1927,7 @@ public struct ModelCommentFilterInput: GraphQLMapConvertible {
 
 public final class CreateUserMutation: GraphQLMutation {
   public static let operationString =
-    "mutation CreateUser($input: CreateUserInput!) {\n  createUser(input: $input) {\n    __typename\n    id\n    first_name\n    last_name\n    email\n    alum\n    honorary_alum\n    bio\n    grad_year\n    moved_to_dc\n  }\n}"
+    "mutation CreateUser($input: CreateUserInput!) {\n  createUser(input: $input) {\n    __typename\n    id\n    firstName\n    lastName\n    email\n    alum\n    honoraryAlum\n    bio\n    gradYear\n    movedToDc\n  }\n}"
 
   public var input: CreateUserInput
 
@@ -1971,14 +1971,14 @@ public final class CreateUserMutation: GraphQLMutation {
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
         GraphQLField("email", type: .scalar(String.self)),
         GraphQLField("alum", type: .scalar(Bool.self)),
-        GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+        GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
         GraphQLField("bio", type: .scalar(String.self)),
-        GraphQLField("grad_year", type: .scalar(Int.self)),
-        GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+        GraphQLField("gradYear", type: .scalar(Int.self)),
+        GraphQLField("movedToDc", type: .scalar(Int.self)),
       ]
 
       public var snapshot: Snapshot
@@ -1988,7 +1988,7 @@ public final class CreateUserMutation: GraphQLMutation {
       }
 
       public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-        self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+        self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
       }
 
       public var __typename: String {
@@ -2011,19 +2011,19 @@ public final class CreateUserMutation: GraphQLMutation {
 
       public var firstName: String {
         get {
-          return snapshot["first_name"]! as! String
+          return snapshot["firstName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "first_name")
+          snapshot.updateValue(newValue, forKey: "firstName")
         }
       }
 
       public var lastName: String {
         get {
-          return snapshot["last_name"]! as! String
+          return snapshot["lastName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "last_name")
+          snapshot.updateValue(newValue, forKey: "lastName")
         }
       }
 
@@ -2047,10 +2047,10 @@ public final class CreateUserMutation: GraphQLMutation {
 
       public var honoraryAlum: Bool? {
         get {
-          return snapshot["honorary_alum"] as? Bool
+          return snapshot["honoraryAlum"] as? Bool
         }
         set {
-          snapshot.updateValue(newValue, forKey: "honorary_alum")
+          snapshot.updateValue(newValue, forKey: "honoraryAlum")
         }
       }
 
@@ -2065,19 +2065,19 @@ public final class CreateUserMutation: GraphQLMutation {
 
       public var gradYear: Int? {
         get {
-          return snapshot["grad_year"] as? Int
+          return snapshot["gradYear"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "grad_year")
+          snapshot.updateValue(newValue, forKey: "gradYear")
         }
       }
 
       public var movedToDc: Int? {
         get {
-          return snapshot["moved_to_dc"] as? Int
+          return snapshot["movedToDc"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "moved_to_dc")
+          snapshot.updateValue(newValue, forKey: "movedToDc")
         }
       }
     }
@@ -2086,7 +2086,7 @@ public final class CreateUserMutation: GraphQLMutation {
 
 public final class UpdateUserMutation: GraphQLMutation {
   public static let operationString =
-    "mutation UpdateUser($input: UpdateUserInput!) {\n  updateUser(input: $input) {\n    __typename\n    id\n    first_name\n    last_name\n    email\n    alum\n    honorary_alum\n    bio\n    grad_year\n    moved_to_dc\n  }\n}"
+    "mutation UpdateUser($input: UpdateUserInput!) {\n  updateUser(input: $input) {\n    __typename\n    id\n    firstName\n    lastName\n    email\n    alum\n    honoraryAlum\n    bio\n    gradYear\n    movedToDc\n  }\n}"
 
   public var input: UpdateUserInput
 
@@ -2130,14 +2130,14 @@ public final class UpdateUserMutation: GraphQLMutation {
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
         GraphQLField("email", type: .scalar(String.self)),
         GraphQLField("alum", type: .scalar(Bool.self)),
-        GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+        GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
         GraphQLField("bio", type: .scalar(String.self)),
-        GraphQLField("grad_year", type: .scalar(Int.self)),
-        GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+        GraphQLField("gradYear", type: .scalar(Int.self)),
+        GraphQLField("movedToDc", type: .scalar(Int.self)),
       ]
 
       public var snapshot: Snapshot
@@ -2147,7 +2147,7 @@ public final class UpdateUserMutation: GraphQLMutation {
       }
 
       public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-        self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+        self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
       }
 
       public var __typename: String {
@@ -2170,19 +2170,19 @@ public final class UpdateUserMutation: GraphQLMutation {
 
       public var firstName: String {
         get {
-          return snapshot["first_name"]! as! String
+          return snapshot["firstName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "first_name")
+          snapshot.updateValue(newValue, forKey: "firstName")
         }
       }
 
       public var lastName: String {
         get {
-          return snapshot["last_name"]! as! String
+          return snapshot["lastName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "last_name")
+          snapshot.updateValue(newValue, forKey: "lastName")
         }
       }
 
@@ -2206,10 +2206,10 @@ public final class UpdateUserMutation: GraphQLMutation {
 
       public var honoraryAlum: Bool? {
         get {
-          return snapshot["honorary_alum"] as? Bool
+          return snapshot["honoraryAlum"] as? Bool
         }
         set {
-          snapshot.updateValue(newValue, forKey: "honorary_alum")
+          snapshot.updateValue(newValue, forKey: "honoraryAlum")
         }
       }
 
@@ -2224,19 +2224,19 @@ public final class UpdateUserMutation: GraphQLMutation {
 
       public var gradYear: Int? {
         get {
-          return snapshot["grad_year"] as? Int
+          return snapshot["gradYear"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "grad_year")
+          snapshot.updateValue(newValue, forKey: "gradYear")
         }
       }
 
       public var movedToDc: Int? {
         get {
-          return snapshot["moved_to_dc"] as? Int
+          return snapshot["movedToDc"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "moved_to_dc")
+          snapshot.updateValue(newValue, forKey: "movedToDc")
         }
       }
     }
@@ -2245,7 +2245,7 @@ public final class UpdateUserMutation: GraphQLMutation {
 
 public final class DeleteUserMutation: GraphQLMutation {
   public static let operationString =
-    "mutation DeleteUser($input: DeleteUserInput!) {\n  deleteUser(input: $input) {\n    __typename\n    id\n    first_name\n    last_name\n    email\n    alum\n    honorary_alum\n    bio\n    grad_year\n    moved_to_dc\n  }\n}"
+    "mutation DeleteUser($input: DeleteUserInput!) {\n  deleteUser(input: $input) {\n    __typename\n    id\n    firstName\n    lastName\n    email\n    alum\n    honoraryAlum\n    bio\n    gradYear\n    movedToDc\n  }\n}"
 
   public var input: DeleteUserInput
 
@@ -2289,14 +2289,14 @@ public final class DeleteUserMutation: GraphQLMutation {
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
         GraphQLField("email", type: .scalar(String.self)),
         GraphQLField("alum", type: .scalar(Bool.self)),
-        GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+        GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
         GraphQLField("bio", type: .scalar(String.self)),
-        GraphQLField("grad_year", type: .scalar(Int.self)),
-        GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+        GraphQLField("gradYear", type: .scalar(Int.self)),
+        GraphQLField("movedToDc", type: .scalar(Int.self)),
       ]
 
       public var snapshot: Snapshot
@@ -2306,7 +2306,7 @@ public final class DeleteUserMutation: GraphQLMutation {
       }
 
       public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-        self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+        self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
       }
 
       public var __typename: String {
@@ -2329,19 +2329,19 @@ public final class DeleteUserMutation: GraphQLMutation {
 
       public var firstName: String {
         get {
-          return snapshot["first_name"]! as! String
+          return snapshot["firstName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "first_name")
+          snapshot.updateValue(newValue, forKey: "firstName")
         }
       }
 
       public var lastName: String {
         get {
-          return snapshot["last_name"]! as! String
+          return snapshot["lastName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "last_name")
+          snapshot.updateValue(newValue, forKey: "lastName")
         }
       }
 
@@ -2365,10 +2365,10 @@ public final class DeleteUserMutation: GraphQLMutation {
 
       public var honoraryAlum: Bool? {
         get {
-          return snapshot["honorary_alum"] as? Bool
+          return snapshot["honoraryAlum"] as? Bool
         }
         set {
-          snapshot.updateValue(newValue, forKey: "honorary_alum")
+          snapshot.updateValue(newValue, forKey: "honoraryAlum")
         }
       }
 
@@ -2383,19 +2383,19 @@ public final class DeleteUserMutation: GraphQLMutation {
 
       public var gradYear: Int? {
         get {
-          return snapshot["grad_year"] as? Int
+          return snapshot["gradYear"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "grad_year")
+          snapshot.updateValue(newValue, forKey: "gradYear")
         }
       }
 
       public var movedToDc: Int? {
         get {
-          return snapshot["moved_to_dc"] as? Int
+          return snapshot["movedToDc"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "moved_to_dc")
+          snapshot.updateValue(newValue, forKey: "movedToDc")
         }
       }
     }
@@ -2404,7 +2404,7 @@ public final class DeleteUserMutation: GraphQLMutation {
 
 public final class CreateEventMutation: GraphQLMutation {
   public static let operationString =
-    "mutation CreateEvent($input: CreateEventInput!) {\n  createEvent(input: $input) {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    maybeGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    notGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    tags\n  }\n}"
+    "mutation CreateEvent($input: CreateEventInput!) {\n  createEvent(input: $input) {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    maybeGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    notGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    tags\n  }\n}"
 
   public var input: CreateEventInput
 
@@ -2574,14 +2574,14 @@ public final class CreateEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -2591,7 +2591,7 @@ public final class CreateEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -2614,19 +2614,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -2650,10 +2650,10 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -2668,19 +2668,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -2691,14 +2691,14 @@ public final class CreateEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -2708,7 +2708,7 @@ public final class CreateEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -2731,19 +2731,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -2767,10 +2767,10 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -2785,19 +2785,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -2808,14 +2808,14 @@ public final class CreateEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -2825,7 +2825,7 @@ public final class CreateEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -2848,19 +2848,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -2884,10 +2884,10 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -2902,19 +2902,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -3011,14 +3011,14 @@ public final class CreateEventMutation: GraphQLMutation {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -3028,7 +3028,7 @@ public final class CreateEventMutation: GraphQLMutation {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -3051,19 +3051,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -3087,10 +3087,10 @@ public final class CreateEventMutation: GraphQLMutation {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -3105,19 +3105,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -3165,14 +3165,14 @@ public final class CreateEventMutation: GraphQLMutation {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -3182,7 +3182,7 @@ public final class CreateEventMutation: GraphQLMutation {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -3205,19 +3205,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -3241,10 +3241,10 @@ public final class CreateEventMutation: GraphQLMutation {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -3259,19 +3259,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -3283,14 +3283,14 @@ public final class CreateEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -3300,7 +3300,7 @@ public final class CreateEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -3323,19 +3323,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -3359,10 +3359,10 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -3377,19 +3377,19 @@ public final class CreateEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -3399,7 +3399,7 @@ public final class CreateEventMutation: GraphQLMutation {
 
 public final class UpdateEventMutation: GraphQLMutation {
   public static let operationString =
-    "mutation UpdateEvent($input: UpdateEventInput!) {\n  updateEvent(input: $input) {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    maybeGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    notGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    tags\n  }\n}"
+    "mutation UpdateEvent($input: UpdateEventInput!) {\n  updateEvent(input: $input) {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    maybeGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    notGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    tags\n  }\n}"
 
   public var input: UpdateEventInput
 
@@ -3569,14 +3569,14 @@ public final class UpdateEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -3586,7 +3586,7 @@ public final class UpdateEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -3609,19 +3609,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -3645,10 +3645,10 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -3663,19 +3663,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -3686,14 +3686,14 @@ public final class UpdateEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -3703,7 +3703,7 @@ public final class UpdateEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -3726,19 +3726,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -3762,10 +3762,10 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -3780,19 +3780,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -3803,14 +3803,14 @@ public final class UpdateEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -3820,7 +3820,7 @@ public final class UpdateEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -3843,19 +3843,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -3879,10 +3879,10 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -3897,19 +3897,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -4006,14 +4006,14 @@ public final class UpdateEventMutation: GraphQLMutation {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -4023,7 +4023,7 @@ public final class UpdateEventMutation: GraphQLMutation {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -4046,19 +4046,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -4082,10 +4082,10 @@ public final class UpdateEventMutation: GraphQLMutation {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -4100,19 +4100,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -4160,14 +4160,14 @@ public final class UpdateEventMutation: GraphQLMutation {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -4177,7 +4177,7 @@ public final class UpdateEventMutation: GraphQLMutation {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -4200,19 +4200,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -4236,10 +4236,10 @@ public final class UpdateEventMutation: GraphQLMutation {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -4254,19 +4254,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -4278,14 +4278,14 @@ public final class UpdateEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -4295,7 +4295,7 @@ public final class UpdateEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -4318,19 +4318,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -4354,10 +4354,10 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -4372,19 +4372,19 @@ public final class UpdateEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -4394,7 +4394,7 @@ public final class UpdateEventMutation: GraphQLMutation {
 
 public final class DeleteEventMutation: GraphQLMutation {
   public static let operationString =
-    "mutation DeleteEvent($input: DeleteEventInput!) {\n  deleteEvent(input: $input) {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    maybeGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    notGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    tags\n  }\n}"
+    "mutation DeleteEvent($input: DeleteEventInput!) {\n  deleteEvent(input: $input) {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    maybeGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    notGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    tags\n  }\n}"
 
   public var input: DeleteEventInput
 
@@ -4564,14 +4564,14 @@ public final class DeleteEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -4581,7 +4581,7 @@ public final class DeleteEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -4604,19 +4604,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -4640,10 +4640,10 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -4658,19 +4658,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -4681,14 +4681,14 @@ public final class DeleteEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -4698,7 +4698,7 @@ public final class DeleteEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -4721,19 +4721,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -4757,10 +4757,10 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -4775,19 +4775,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -4798,14 +4798,14 @@ public final class DeleteEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -4815,7 +4815,7 @@ public final class DeleteEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -4838,19 +4838,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -4874,10 +4874,10 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -4892,19 +4892,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -5001,14 +5001,14 @@ public final class DeleteEventMutation: GraphQLMutation {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -5018,7 +5018,7 @@ public final class DeleteEventMutation: GraphQLMutation {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -5041,19 +5041,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -5077,10 +5077,10 @@ public final class DeleteEventMutation: GraphQLMutation {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -5095,19 +5095,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -5155,14 +5155,14 @@ public final class DeleteEventMutation: GraphQLMutation {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -5172,7 +5172,7 @@ public final class DeleteEventMutation: GraphQLMutation {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -5195,19 +5195,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -5231,10 +5231,10 @@ public final class DeleteEventMutation: GraphQLMutation {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -5249,19 +5249,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -5273,14 +5273,14 @@ public final class DeleteEventMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -5290,7 +5290,7 @@ public final class DeleteEventMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -5313,19 +5313,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -5349,10 +5349,10 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -5367,19 +5367,19 @@ public final class DeleteEventMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -5389,7 +5389,7 @@ public final class DeleteEventMutation: GraphQLMutation {
 
 public final class CreateGroupMutation: GraphQLMutation {
   public static let operationString =
-    "mutation CreateGroup($input: CreateGroupInput!) {\n  createGroup(input: $input) {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n  }\n}"
+    "mutation CreateGroup($input: CreateGroupInput!) {\n  createGroup(input: $input) {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n  }\n}"
 
   public var input: CreateGroupInput
 
@@ -5519,14 +5519,14 @@ public final class CreateGroupMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -5536,7 +5536,7 @@ public final class CreateGroupMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -5559,19 +5559,19 @@ public final class CreateGroupMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -5595,10 +5595,10 @@ public final class CreateGroupMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -5613,19 +5613,19 @@ public final class CreateGroupMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -5760,14 +5760,14 @@ public final class CreateGroupMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -5777,7 +5777,7 @@ public final class CreateGroupMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -5800,19 +5800,19 @@ public final class CreateGroupMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -5836,10 +5836,10 @@ public final class CreateGroupMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -5854,19 +5854,19 @@ public final class CreateGroupMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -5876,7 +5876,7 @@ public final class CreateGroupMutation: GraphQLMutation {
 
 public final class UpdateGroupMutation: GraphQLMutation {
   public static let operationString =
-    "mutation UpdateGroup($input: UpdateGroupInput!) {\n  updateGroup(input: $input) {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n  }\n}"
+    "mutation UpdateGroup($input: UpdateGroupInput!) {\n  updateGroup(input: $input) {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n  }\n}"
 
   public var input: UpdateGroupInput
 
@@ -6006,14 +6006,14 @@ public final class UpdateGroupMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -6023,7 +6023,7 @@ public final class UpdateGroupMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -6046,19 +6046,19 @@ public final class UpdateGroupMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -6082,10 +6082,10 @@ public final class UpdateGroupMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -6100,19 +6100,19 @@ public final class UpdateGroupMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -6247,14 +6247,14 @@ public final class UpdateGroupMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -6264,7 +6264,7 @@ public final class UpdateGroupMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -6287,19 +6287,19 @@ public final class UpdateGroupMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -6323,10 +6323,10 @@ public final class UpdateGroupMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -6341,19 +6341,19 @@ public final class UpdateGroupMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -6363,7 +6363,7 @@ public final class UpdateGroupMutation: GraphQLMutation {
 
 public final class DeleteGroupMutation: GraphQLMutation {
   public static let operationString =
-    "mutation DeleteGroup($input: DeleteGroupInput!) {\n  deleteGroup(input: $input) {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n  }\n}"
+    "mutation DeleteGroup($input: DeleteGroupInput!) {\n  deleteGroup(input: $input) {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n  }\n}"
 
   public var input: DeleteGroupInput
 
@@ -6493,14 +6493,14 @@ public final class DeleteGroupMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -6510,7 +6510,7 @@ public final class DeleteGroupMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -6533,19 +6533,19 @@ public final class DeleteGroupMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -6569,10 +6569,10 @@ public final class DeleteGroupMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -6587,19 +6587,19 @@ public final class DeleteGroupMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -6734,14 +6734,14 @@ public final class DeleteGroupMutation: GraphQLMutation {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -6751,7 +6751,7 @@ public final class DeleteGroupMutation: GraphQLMutation {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -6774,19 +6774,19 @@ public final class DeleteGroupMutation: GraphQLMutation {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -6810,10 +6810,10 @@ public final class DeleteGroupMutation: GraphQLMutation {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -6828,19 +6828,19 @@ public final class DeleteGroupMutation: GraphQLMutation {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -11773,7 +11773,7 @@ public final class DeleteCommentMutation: GraphQLMutation {
 
 public final class GetUserQuery: GraphQLQuery {
   public static let operationString =
-    "query GetUser($id: ID!) {\n  getUser(id: $id) {\n    __typename\n    id\n    first_name\n    last_name\n    email\n    alum\n    honorary_alum\n    bio\n    grad_year\n    moved_to_dc\n  }\n}"
+    "query GetUser($id: ID!) {\n  getUser(id: $id) {\n    __typename\n    id\n    firstName\n    lastName\n    email\n    alum\n    honoraryAlum\n    bio\n    gradYear\n    movedToDc\n  }\n}"
 
   public var id: GraphQLID
 
@@ -11817,14 +11817,14 @@ public final class GetUserQuery: GraphQLQuery {
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
         GraphQLField("email", type: .scalar(String.self)),
         GraphQLField("alum", type: .scalar(Bool.self)),
-        GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+        GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
         GraphQLField("bio", type: .scalar(String.self)),
-        GraphQLField("grad_year", type: .scalar(Int.self)),
-        GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+        GraphQLField("gradYear", type: .scalar(Int.self)),
+        GraphQLField("movedToDc", type: .scalar(Int.self)),
       ]
 
       public var snapshot: Snapshot
@@ -11834,7 +11834,7 @@ public final class GetUserQuery: GraphQLQuery {
       }
 
       public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-        self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+        self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
       }
 
       public var __typename: String {
@@ -11857,19 +11857,19 @@ public final class GetUserQuery: GraphQLQuery {
 
       public var firstName: String {
         get {
-          return snapshot["first_name"]! as! String
+          return snapshot["firstName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "first_name")
+          snapshot.updateValue(newValue, forKey: "firstName")
         }
       }
 
       public var lastName: String {
         get {
-          return snapshot["last_name"]! as! String
+          return snapshot["lastName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "last_name")
+          snapshot.updateValue(newValue, forKey: "lastName")
         }
       }
 
@@ -11893,10 +11893,10 @@ public final class GetUserQuery: GraphQLQuery {
 
       public var honoraryAlum: Bool? {
         get {
-          return snapshot["honorary_alum"] as? Bool
+          return snapshot["honoraryAlum"] as? Bool
         }
         set {
-          snapshot.updateValue(newValue, forKey: "honorary_alum")
+          snapshot.updateValue(newValue, forKey: "honoraryAlum")
         }
       }
 
@@ -11911,19 +11911,19 @@ public final class GetUserQuery: GraphQLQuery {
 
       public var gradYear: Int? {
         get {
-          return snapshot["grad_year"] as? Int
+          return snapshot["gradYear"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "grad_year")
+          snapshot.updateValue(newValue, forKey: "gradYear")
         }
       }
 
       public var movedToDc: Int? {
         get {
-          return snapshot["moved_to_dc"] as? Int
+          return snapshot["movedToDc"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "moved_to_dc")
+          snapshot.updateValue(newValue, forKey: "movedToDc")
         }
       }
     }
@@ -11932,7 +11932,7 @@ public final class GetUserQuery: GraphQLQuery {
 
 public final class ListUsersQuery: GraphQLQuery {
   public static let operationString =
-    "query ListUsers($filter: ModelUserFilterInput, $limit: Int, $nextToken: String) {\n  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    nextToken\n  }\n}"
+    "query ListUsers($filter: ModelUserFilterInput, $limit: Int, $nextToken: String) {\n  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    nextToken\n  }\n}"
 
   public var filter: ModelUserFilterInput?
   public var limit: Int?
@@ -12026,14 +12026,14 @@ public final class ListUsersQuery: GraphQLQuery {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -12043,7 +12043,7 @@ public final class ListUsersQuery: GraphQLQuery {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -12066,19 +12066,19 @@ public final class ListUsersQuery: GraphQLQuery {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -12102,10 +12102,10 @@ public final class ListUsersQuery: GraphQLQuery {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -12120,19 +12120,19 @@ public final class ListUsersQuery: GraphQLQuery {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -12142,7 +12142,7 @@ public final class ListUsersQuery: GraphQLQuery {
 
 public final class GetEventQuery: GraphQLQuery {
   public static let operationString =
-    "query GetEvent($id: ID!) {\n  getEvent(id: $id) {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    maybeGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    notGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    tags\n  }\n}"
+    "query GetEvent($id: ID!) {\n  getEvent(id: $id) {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    maybeGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    notGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    tags\n  }\n}"
 
   public var id: GraphQLID
 
@@ -12312,14 +12312,14 @@ public final class GetEventQuery: GraphQLQuery {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -12329,7 +12329,7 @@ public final class GetEventQuery: GraphQLQuery {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -12352,19 +12352,19 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -12388,10 +12388,10 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -12406,19 +12406,19 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -12429,14 +12429,14 @@ public final class GetEventQuery: GraphQLQuery {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -12446,7 +12446,7 @@ public final class GetEventQuery: GraphQLQuery {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -12469,19 +12469,19 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -12505,10 +12505,10 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -12523,19 +12523,19 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -12546,14 +12546,14 @@ public final class GetEventQuery: GraphQLQuery {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -12563,7 +12563,7 @@ public final class GetEventQuery: GraphQLQuery {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -12586,19 +12586,19 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -12622,10 +12622,10 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -12640,19 +12640,19 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -12749,14 +12749,14 @@ public final class GetEventQuery: GraphQLQuery {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -12766,7 +12766,7 @@ public final class GetEventQuery: GraphQLQuery {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -12789,19 +12789,19 @@ public final class GetEventQuery: GraphQLQuery {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -12825,10 +12825,10 @@ public final class GetEventQuery: GraphQLQuery {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -12843,19 +12843,19 @@ public final class GetEventQuery: GraphQLQuery {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -12903,14 +12903,14 @@ public final class GetEventQuery: GraphQLQuery {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -12920,7 +12920,7 @@ public final class GetEventQuery: GraphQLQuery {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -12943,19 +12943,19 @@ public final class GetEventQuery: GraphQLQuery {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -12979,10 +12979,10 @@ public final class GetEventQuery: GraphQLQuery {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -12997,19 +12997,19 @@ public final class GetEventQuery: GraphQLQuery {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -13021,14 +13021,14 @@ public final class GetEventQuery: GraphQLQuery {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -13038,7 +13038,7 @@ public final class GetEventQuery: GraphQLQuery {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -13061,19 +13061,19 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -13097,10 +13097,10 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -13115,19 +13115,19 @@ public final class GetEventQuery: GraphQLQuery {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -13137,7 +13137,7 @@ public final class GetEventQuery: GraphQLQuery {
 
 public final class ListEventsQuery: GraphQLQuery {
   public static let operationString =
-    "query ListEvents($filter: ModelEventFilterInput, $limit: Int, $nextToken: String) {\n  listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      name\n      going {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      maybeGoing {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      notGoing {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      date\n      group {\n        __typename\n        id\n        name\n      }\n      location\n      organizer {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      tags\n    }\n    nextToken\n  }\n}"
+    "query ListEvents($filter: ModelEventFilterInput, $limit: Int, $nextToken: String) {\n  listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      name\n      going {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      maybeGoing {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      notGoing {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      date\n      group {\n        __typename\n        id\n        name\n      }\n      location\n      organizer {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      tags\n    }\n    nextToken\n  }\n}"
 
   public var filter: ModelEventFilterInput?
   public var limit: Int?
@@ -13357,14 +13357,14 @@ public final class ListEventsQuery: GraphQLQuery {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -13374,7 +13374,7 @@ public final class ListEventsQuery: GraphQLQuery {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -13397,19 +13397,19 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -13433,10 +13433,10 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -13451,19 +13451,19 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -13474,14 +13474,14 @@ public final class ListEventsQuery: GraphQLQuery {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -13491,7 +13491,7 @@ public final class ListEventsQuery: GraphQLQuery {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -13514,19 +13514,19 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -13550,10 +13550,10 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -13568,19 +13568,19 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -13591,14 +13591,14 @@ public final class ListEventsQuery: GraphQLQuery {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -13608,7 +13608,7 @@ public final class ListEventsQuery: GraphQLQuery {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -13631,19 +13631,19 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -13667,10 +13667,10 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -13685,19 +13685,19 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -13755,14 +13755,14 @@ public final class ListEventsQuery: GraphQLQuery {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -13772,7 +13772,7 @@ public final class ListEventsQuery: GraphQLQuery {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -13795,19 +13795,19 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -13831,10 +13831,10 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -13849,19 +13849,19 @@ public final class ListEventsQuery: GraphQLQuery {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -13872,7 +13872,7 @@ public final class ListEventsQuery: GraphQLQuery {
 
 public final class GetGroupQuery: GraphQLQuery {
   public static let operationString =
-    "query GetGroup($id: ID!) {\n  getGroup(id: $id) {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n  }\n}"
+    "query GetGroup($id: ID!) {\n  getGroup(id: $id) {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n  }\n}"
 
   public var id: GraphQLID
 
@@ -14002,14 +14002,14 @@ public final class GetGroupQuery: GraphQLQuery {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -14019,7 +14019,7 @@ public final class GetGroupQuery: GraphQLQuery {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -14042,19 +14042,19 @@ public final class GetGroupQuery: GraphQLQuery {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -14078,10 +14078,10 @@ public final class GetGroupQuery: GraphQLQuery {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -14096,19 +14096,19 @@ public final class GetGroupQuery: GraphQLQuery {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -14243,14 +14243,14 @@ public final class GetGroupQuery: GraphQLQuery {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -14260,7 +14260,7 @@ public final class GetGroupQuery: GraphQLQuery {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -14283,19 +14283,19 @@ public final class GetGroupQuery: GraphQLQuery {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -14319,10 +14319,10 @@ public final class GetGroupQuery: GraphQLQuery {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -14337,19 +14337,19 @@ public final class GetGroupQuery: GraphQLQuery {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -14359,7 +14359,7 @@ public final class GetGroupQuery: GraphQLQuery {
 
 public final class ListGroupsQuery: GraphQLQuery {
   public static let operationString =
-    "query ListGroups($filter: ModelGroupFilterInput, $limit: Int, $nextToken: String) {\n  listGroups(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n    }\n    nextToken\n  }\n}"
+    "query ListGroups($filter: ModelGroupFilterInput, $limit: Int, $nextToken: String) {\n  listGroups(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n    }\n    nextToken\n  }\n}"
 
   public var filter: ModelGroupFilterInput?
   public var limit: Int?
@@ -14539,14 +14539,14 @@ public final class ListGroupsQuery: GraphQLQuery {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -14556,7 +14556,7 @@ public final class ListGroupsQuery: GraphQLQuery {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -14579,19 +14579,19 @@ public final class ListGroupsQuery: GraphQLQuery {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -14615,10 +14615,10 @@ public final class ListGroupsQuery: GraphQLQuery {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -14633,19 +14633,19 @@ public final class ListGroupsQuery: GraphQLQuery {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -14693,14 +14693,14 @@ public final class ListGroupsQuery: GraphQLQuery {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -14710,7 +14710,7 @@ public final class ListGroupsQuery: GraphQLQuery {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -14733,19 +14733,19 @@ public final class ListGroupsQuery: GraphQLQuery {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -14769,10 +14769,10 @@ public final class ListGroupsQuery: GraphQLQuery {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -14787,19 +14787,19 @@ public final class ListGroupsQuery: GraphQLQuery {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -17737,7 +17737,7 @@ public final class ListCommentsQuery: GraphQLQuery {
 
 public final class OnCreateUserSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnCreateUser {\n  onCreateUser {\n    __typename\n    id\n    first_name\n    last_name\n    email\n    alum\n    honorary_alum\n    bio\n    grad_year\n    moved_to_dc\n  }\n}"
+    "subscription OnCreateUser {\n  onCreateUser {\n    __typename\n    id\n    firstName\n    lastName\n    email\n    alum\n    honoraryAlum\n    bio\n    gradYear\n    movedToDc\n  }\n}"
 
   public init() {
   }
@@ -17774,14 +17774,14 @@ public final class OnCreateUserSubscription: GraphQLSubscription {
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
         GraphQLField("email", type: .scalar(String.self)),
         GraphQLField("alum", type: .scalar(Bool.self)),
-        GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+        GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
         GraphQLField("bio", type: .scalar(String.self)),
-        GraphQLField("grad_year", type: .scalar(Int.self)),
-        GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+        GraphQLField("gradYear", type: .scalar(Int.self)),
+        GraphQLField("movedToDc", type: .scalar(Int.self)),
       ]
 
       public var snapshot: Snapshot
@@ -17791,7 +17791,7 @@ public final class OnCreateUserSubscription: GraphQLSubscription {
       }
 
       public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-        self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+        self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
       }
 
       public var __typename: String {
@@ -17814,19 +17814,19 @@ public final class OnCreateUserSubscription: GraphQLSubscription {
 
       public var firstName: String {
         get {
-          return snapshot["first_name"]! as! String
+          return snapshot["firstName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "first_name")
+          snapshot.updateValue(newValue, forKey: "firstName")
         }
       }
 
       public var lastName: String {
         get {
-          return snapshot["last_name"]! as! String
+          return snapshot["lastName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "last_name")
+          snapshot.updateValue(newValue, forKey: "lastName")
         }
       }
 
@@ -17850,10 +17850,10 @@ public final class OnCreateUserSubscription: GraphQLSubscription {
 
       public var honoraryAlum: Bool? {
         get {
-          return snapshot["honorary_alum"] as? Bool
+          return snapshot["honoraryAlum"] as? Bool
         }
         set {
-          snapshot.updateValue(newValue, forKey: "honorary_alum")
+          snapshot.updateValue(newValue, forKey: "honoraryAlum")
         }
       }
 
@@ -17868,19 +17868,19 @@ public final class OnCreateUserSubscription: GraphQLSubscription {
 
       public var gradYear: Int? {
         get {
-          return snapshot["grad_year"] as? Int
+          return snapshot["gradYear"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "grad_year")
+          snapshot.updateValue(newValue, forKey: "gradYear")
         }
       }
 
       public var movedToDc: Int? {
         get {
-          return snapshot["moved_to_dc"] as? Int
+          return snapshot["movedToDc"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "moved_to_dc")
+          snapshot.updateValue(newValue, forKey: "movedToDc")
         }
       }
     }
@@ -17889,7 +17889,7 @@ public final class OnCreateUserSubscription: GraphQLSubscription {
 
 public final class OnUpdateUserSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnUpdateUser {\n  onUpdateUser {\n    __typename\n    id\n    first_name\n    last_name\n    email\n    alum\n    honorary_alum\n    bio\n    grad_year\n    moved_to_dc\n  }\n}"
+    "subscription OnUpdateUser {\n  onUpdateUser {\n    __typename\n    id\n    firstName\n    lastName\n    email\n    alum\n    honoraryAlum\n    bio\n    gradYear\n    movedToDc\n  }\n}"
 
   public init() {
   }
@@ -17926,14 +17926,14 @@ public final class OnUpdateUserSubscription: GraphQLSubscription {
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
         GraphQLField("email", type: .scalar(String.self)),
         GraphQLField("alum", type: .scalar(Bool.self)),
-        GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+        GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
         GraphQLField("bio", type: .scalar(String.self)),
-        GraphQLField("grad_year", type: .scalar(Int.self)),
-        GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+        GraphQLField("gradYear", type: .scalar(Int.self)),
+        GraphQLField("movedToDc", type: .scalar(Int.self)),
       ]
 
       public var snapshot: Snapshot
@@ -17943,7 +17943,7 @@ public final class OnUpdateUserSubscription: GraphQLSubscription {
       }
 
       public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-        self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+        self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
       }
 
       public var __typename: String {
@@ -17966,19 +17966,19 @@ public final class OnUpdateUserSubscription: GraphQLSubscription {
 
       public var firstName: String {
         get {
-          return snapshot["first_name"]! as! String
+          return snapshot["firstName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "first_name")
+          snapshot.updateValue(newValue, forKey: "firstName")
         }
       }
 
       public var lastName: String {
         get {
-          return snapshot["last_name"]! as! String
+          return snapshot["lastName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "last_name")
+          snapshot.updateValue(newValue, forKey: "lastName")
         }
       }
 
@@ -18002,10 +18002,10 @@ public final class OnUpdateUserSubscription: GraphQLSubscription {
 
       public var honoraryAlum: Bool? {
         get {
-          return snapshot["honorary_alum"] as? Bool
+          return snapshot["honoraryAlum"] as? Bool
         }
         set {
-          snapshot.updateValue(newValue, forKey: "honorary_alum")
+          snapshot.updateValue(newValue, forKey: "honoraryAlum")
         }
       }
 
@@ -18020,19 +18020,19 @@ public final class OnUpdateUserSubscription: GraphQLSubscription {
 
       public var gradYear: Int? {
         get {
-          return snapshot["grad_year"] as? Int
+          return snapshot["gradYear"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "grad_year")
+          snapshot.updateValue(newValue, forKey: "gradYear")
         }
       }
 
       public var movedToDc: Int? {
         get {
-          return snapshot["moved_to_dc"] as? Int
+          return snapshot["movedToDc"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "moved_to_dc")
+          snapshot.updateValue(newValue, forKey: "movedToDc")
         }
       }
     }
@@ -18041,7 +18041,7 @@ public final class OnUpdateUserSubscription: GraphQLSubscription {
 
 public final class OnDeleteUserSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnDeleteUser {\n  onDeleteUser {\n    __typename\n    id\n    first_name\n    last_name\n    email\n    alum\n    honorary_alum\n    bio\n    grad_year\n    moved_to_dc\n  }\n}"
+    "subscription OnDeleteUser {\n  onDeleteUser {\n    __typename\n    id\n    firstName\n    lastName\n    email\n    alum\n    honoraryAlum\n    bio\n    gradYear\n    movedToDc\n  }\n}"
 
   public init() {
   }
@@ -18078,14 +18078,14 @@ public final class OnDeleteUserSubscription: GraphQLSubscription {
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
         GraphQLField("email", type: .scalar(String.self)),
         GraphQLField("alum", type: .scalar(Bool.self)),
-        GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+        GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
         GraphQLField("bio", type: .scalar(String.self)),
-        GraphQLField("grad_year", type: .scalar(Int.self)),
-        GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+        GraphQLField("gradYear", type: .scalar(Int.self)),
+        GraphQLField("movedToDc", type: .scalar(Int.self)),
       ]
 
       public var snapshot: Snapshot
@@ -18095,7 +18095,7 @@ public final class OnDeleteUserSubscription: GraphQLSubscription {
       }
 
       public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-        self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+        self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
       }
 
       public var __typename: String {
@@ -18118,19 +18118,19 @@ public final class OnDeleteUserSubscription: GraphQLSubscription {
 
       public var firstName: String {
         get {
-          return snapshot["first_name"]! as! String
+          return snapshot["firstName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "first_name")
+          snapshot.updateValue(newValue, forKey: "firstName")
         }
       }
 
       public var lastName: String {
         get {
-          return snapshot["last_name"]! as! String
+          return snapshot["lastName"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "last_name")
+          snapshot.updateValue(newValue, forKey: "lastName")
         }
       }
 
@@ -18154,10 +18154,10 @@ public final class OnDeleteUserSubscription: GraphQLSubscription {
 
       public var honoraryAlum: Bool? {
         get {
-          return snapshot["honorary_alum"] as? Bool
+          return snapshot["honoraryAlum"] as? Bool
         }
         set {
-          snapshot.updateValue(newValue, forKey: "honorary_alum")
+          snapshot.updateValue(newValue, forKey: "honoraryAlum")
         }
       }
 
@@ -18172,19 +18172,19 @@ public final class OnDeleteUserSubscription: GraphQLSubscription {
 
       public var gradYear: Int? {
         get {
-          return snapshot["grad_year"] as? Int
+          return snapshot["gradYear"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "grad_year")
+          snapshot.updateValue(newValue, forKey: "gradYear")
         }
       }
 
       public var movedToDc: Int? {
         get {
-          return snapshot["moved_to_dc"] as? Int
+          return snapshot["movedToDc"] as? Int
         }
         set {
-          snapshot.updateValue(newValue, forKey: "moved_to_dc")
+          snapshot.updateValue(newValue, forKey: "movedToDc")
         }
       }
     }
@@ -18193,7 +18193,7 @@ public final class OnDeleteUserSubscription: GraphQLSubscription {
 
 public final class OnCreateEventSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnCreateEvent {\n  onCreateEvent {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    maybeGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    notGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    tags\n  }\n}"
+    "subscription OnCreateEvent {\n  onCreateEvent {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    maybeGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    notGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    tags\n  }\n}"
 
   public init() {
   }
@@ -18356,14 +18356,14 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -18373,7 +18373,7 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -18396,19 +18396,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -18432,10 +18432,10 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -18450,19 +18450,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -18473,14 +18473,14 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -18490,7 +18490,7 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -18513,19 +18513,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -18549,10 +18549,10 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -18567,19 +18567,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -18590,14 +18590,14 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -18607,7 +18607,7 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -18630,19 +18630,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -18666,10 +18666,10 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -18684,19 +18684,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -18793,14 +18793,14 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -18810,7 +18810,7 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -18833,19 +18833,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -18869,10 +18869,10 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -18887,19 +18887,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -18947,14 +18947,14 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -18964,7 +18964,7 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -18987,19 +18987,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -19023,10 +19023,10 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -19041,19 +19041,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -19065,14 +19065,14 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -19082,7 +19082,7 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -19105,19 +19105,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -19141,10 +19141,10 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -19159,19 +19159,19 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -19181,7 +19181,7 @@ public final class OnCreateEventSubscription: GraphQLSubscription {
 
 public final class OnUpdateEventSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnUpdateEvent {\n  onUpdateEvent {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    maybeGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    notGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    tags\n  }\n}"
+    "subscription OnUpdateEvent {\n  onUpdateEvent {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    maybeGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    notGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    tags\n  }\n}"
 
   public init() {
   }
@@ -19344,14 +19344,14 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -19361,7 +19361,7 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -19384,19 +19384,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -19420,10 +19420,10 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -19438,19 +19438,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -19461,14 +19461,14 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -19478,7 +19478,7 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -19501,19 +19501,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -19537,10 +19537,10 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -19555,19 +19555,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -19578,14 +19578,14 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -19595,7 +19595,7 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -19618,19 +19618,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -19654,10 +19654,10 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -19672,19 +19672,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -19781,14 +19781,14 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -19798,7 +19798,7 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -19821,19 +19821,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -19857,10 +19857,10 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -19875,19 +19875,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -19935,14 +19935,14 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -19952,7 +19952,7 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -19975,19 +19975,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -20011,10 +20011,10 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -20029,19 +20029,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -20053,14 +20053,14 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -20070,7 +20070,7 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -20093,19 +20093,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -20129,10 +20129,10 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -20147,19 +20147,19 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -20169,7 +20169,7 @@ public final class OnUpdateEventSubscription: GraphQLSubscription {
 
 public final class OnDeleteEventSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnDeleteEvent {\n  onDeleteEvent {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    maybeGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    notGoing {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        first_name\n        last_name\n        email\n        alum\n        honorary_alum\n        bio\n        grad_year\n        moved_to_dc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    tags\n  }\n}"
+    "subscription OnDeleteEvent {\n  onDeleteEvent {\n    __typename\n    id\n    name\n    going {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    maybeGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    notGoing {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    date\n    group {\n      __typename\n      id\n      name\n      members {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n      events {\n        __typename\n        nextToken\n      }\n      type\n      organizer {\n        __typename\n        id\n        firstName\n        lastName\n        email\n        alum\n        honoraryAlum\n        bio\n        gradYear\n        movedToDc\n      }\n    }\n    location\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    tags\n  }\n}"
 
   public init() {
   }
@@ -20332,14 +20332,14 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -20349,7 +20349,7 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -20372,19 +20372,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -20408,10 +20408,10 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -20426,19 +20426,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -20449,14 +20449,14 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -20466,7 +20466,7 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -20489,19 +20489,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -20525,10 +20525,10 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -20543,19 +20543,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -20566,14 +20566,14 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -20583,7 +20583,7 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -20606,19 +20606,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -20642,10 +20642,10 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -20660,19 +20660,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -20769,14 +20769,14 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -20786,7 +20786,7 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -20809,19 +20809,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -20845,10 +20845,10 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -20863,19 +20863,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -20923,14 +20923,14 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-            GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("email", type: .scalar(String.self)),
             GraphQLField("alum", type: .scalar(Bool.self)),
-            GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+            GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
             GraphQLField("bio", type: .scalar(String.self)),
-            GraphQLField("grad_year", type: .scalar(Int.self)),
-            GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+            GraphQLField("gradYear", type: .scalar(Int.self)),
+            GraphQLField("movedToDc", type: .scalar(Int.self)),
           ]
 
           public var snapshot: Snapshot
@@ -20940,7 +20940,7 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
           }
 
           public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-            self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+            self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
           }
 
           public var __typename: String {
@@ -20963,19 +20963,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
           public var firstName: String {
             get {
-              return snapshot["first_name"]! as! String
+              return snapshot["firstName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "first_name")
+              snapshot.updateValue(newValue, forKey: "firstName")
             }
           }
 
           public var lastName: String {
             get {
-              return snapshot["last_name"]! as! String
+              return snapshot["lastName"]! as! String
             }
             set {
-              snapshot.updateValue(newValue, forKey: "last_name")
+              snapshot.updateValue(newValue, forKey: "lastName")
             }
           }
 
@@ -20999,10 +20999,10 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
           public var honoraryAlum: Bool? {
             get {
-              return snapshot["honorary_alum"] as? Bool
+              return snapshot["honoraryAlum"] as? Bool
             }
             set {
-              snapshot.updateValue(newValue, forKey: "honorary_alum")
+              snapshot.updateValue(newValue, forKey: "honoraryAlum")
             }
           }
 
@@ -21017,19 +21017,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
           public var gradYear: Int? {
             get {
-              return snapshot["grad_year"] as? Int
+              return snapshot["gradYear"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "grad_year")
+              snapshot.updateValue(newValue, forKey: "gradYear")
             }
           }
 
           public var movedToDc: Int? {
             get {
-              return snapshot["moved_to_dc"] as? Int
+              return snapshot["movedToDc"] as? Int
             }
             set {
-              snapshot.updateValue(newValue, forKey: "moved_to_dc")
+              snapshot.updateValue(newValue, forKey: "movedToDc")
             }
           }
         }
@@ -21041,14 +21041,14 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -21058,7 +21058,7 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -21081,19 +21081,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -21117,10 +21117,10 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -21135,19 +21135,19 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -21157,7 +21157,7 @@ public final class OnDeleteEventSubscription: GraphQLSubscription {
 
 public final class OnCreateGroupSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnCreateGroup {\n  onCreateGroup {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n  }\n}"
+    "subscription OnCreateGroup {\n  onCreateGroup {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n  }\n}"
 
   public init() {
   }
@@ -21280,14 +21280,14 @@ public final class OnCreateGroupSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -21297,7 +21297,7 @@ public final class OnCreateGroupSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -21320,19 +21320,19 @@ public final class OnCreateGroupSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -21356,10 +21356,10 @@ public final class OnCreateGroupSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -21374,19 +21374,19 @@ public final class OnCreateGroupSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -21521,14 +21521,14 @@ public final class OnCreateGroupSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -21538,7 +21538,7 @@ public final class OnCreateGroupSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -21561,19 +21561,19 @@ public final class OnCreateGroupSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -21597,10 +21597,10 @@ public final class OnCreateGroupSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -21615,19 +21615,19 @@ public final class OnCreateGroupSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -21637,7 +21637,7 @@ public final class OnCreateGroupSubscription: GraphQLSubscription {
 
 public final class OnUpdateGroupSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnUpdateGroup {\n  onUpdateGroup {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n  }\n}"
+    "subscription OnUpdateGroup {\n  onUpdateGroup {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n  }\n}"
 
   public init() {
   }
@@ -21760,14 +21760,14 @@ public final class OnUpdateGroupSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -21777,7 +21777,7 @@ public final class OnUpdateGroupSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -21800,19 +21800,19 @@ public final class OnUpdateGroupSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -21836,10 +21836,10 @@ public final class OnUpdateGroupSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -21854,19 +21854,19 @@ public final class OnUpdateGroupSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -22001,14 +22001,14 @@ public final class OnUpdateGroupSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -22018,7 +22018,7 @@ public final class OnUpdateGroupSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -22041,19 +22041,19 @@ public final class OnUpdateGroupSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -22077,10 +22077,10 @@ public final class OnUpdateGroupSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -22095,19 +22095,19 @@ public final class OnUpdateGroupSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -22117,7 +22117,7 @@ public final class OnUpdateGroupSubscription: GraphQLSubscription {
 
 public final class OnDeleteGroupSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnDeleteGroup {\n  onDeleteGroup {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      first_name\n      last_name\n      email\n      alum\n      honorary_alum\n      bio\n      grad_year\n      moved_to_dc\n    }\n  }\n}"
+    "subscription OnDeleteGroup {\n  onDeleteGroup {\n    __typename\n    id\n    name\n    members {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n    events {\n      __typename\n      items {\n        __typename\n        id\n        name\n        date\n        location\n        tags\n      }\n      nextToken\n    }\n    type\n    organizer {\n      __typename\n      id\n      firstName\n      lastName\n      email\n      alum\n      honoraryAlum\n      bio\n      gradYear\n      movedToDc\n    }\n  }\n}"
 
   public init() {
   }
@@ -22240,14 +22240,14 @@ public final class OnDeleteGroupSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -22257,7 +22257,7 @@ public final class OnDeleteGroupSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -22280,19 +22280,19 @@ public final class OnDeleteGroupSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -22316,10 +22316,10 @@ public final class OnDeleteGroupSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -22334,19 +22334,19 @@ public final class OnDeleteGroupSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }
@@ -22481,14 +22481,14 @@ public final class OnDeleteGroupSubscription: GraphQLSubscription {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("first_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("last_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .scalar(String.self)),
           GraphQLField("alum", type: .scalar(Bool.self)),
-          GraphQLField("honorary_alum", type: .scalar(Bool.self)),
+          GraphQLField("honoraryAlum", type: .scalar(Bool.self)),
           GraphQLField("bio", type: .scalar(String.self)),
-          GraphQLField("grad_year", type: .scalar(Int.self)),
-          GraphQLField("moved_to_dc", type: .scalar(Int.self)),
+          GraphQLField("gradYear", type: .scalar(Int.self)),
+          GraphQLField("movedToDc", type: .scalar(Int.self)),
         ]
 
         public var snapshot: Snapshot
@@ -22498,7 +22498,7 @@ public final class OnDeleteGroupSubscription: GraphQLSubscription {
         }
 
         public init(id: GraphQLID, firstName: String, lastName: String, email: String? = nil, alum: Bool? = nil, honoraryAlum: Bool? = nil, bio: String? = nil, gradYear: Int? = nil, movedToDc: Int? = nil) {
-          self.init(snapshot: ["__typename": "User", "id": id, "first_name": firstName, "last_name": lastName, "email": email, "alum": alum, "honorary_alum": honoraryAlum, "bio": bio, "grad_year": gradYear, "moved_to_dc": movedToDc])
+          self.init(snapshot: ["__typename": "User", "id": id, "firstName": firstName, "lastName": lastName, "email": email, "alum": alum, "honoraryAlum": honoraryAlum, "bio": bio, "gradYear": gradYear, "movedToDc": movedToDc])
         }
 
         public var __typename: String {
@@ -22521,19 +22521,19 @@ public final class OnDeleteGroupSubscription: GraphQLSubscription {
 
         public var firstName: String {
           get {
-            return snapshot["first_name"]! as! String
+            return snapshot["firstName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "first_name")
+            snapshot.updateValue(newValue, forKey: "firstName")
           }
         }
 
         public var lastName: String {
           get {
-            return snapshot["last_name"]! as! String
+            return snapshot["lastName"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "last_name")
+            snapshot.updateValue(newValue, forKey: "lastName")
           }
         }
 
@@ -22557,10 +22557,10 @@ public final class OnDeleteGroupSubscription: GraphQLSubscription {
 
         public var honoraryAlum: Bool? {
           get {
-            return snapshot["honorary_alum"] as? Bool
+            return snapshot["honoraryAlum"] as? Bool
           }
           set {
-            snapshot.updateValue(newValue, forKey: "honorary_alum")
+            snapshot.updateValue(newValue, forKey: "honoraryAlum")
           }
         }
 
@@ -22575,19 +22575,19 @@ public final class OnDeleteGroupSubscription: GraphQLSubscription {
 
         public var gradYear: Int? {
           get {
-            return snapshot["grad_year"] as? Int
+            return snapshot["gradYear"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "grad_year")
+            snapshot.updateValue(newValue, forKey: "gradYear")
           }
         }
 
         public var movedToDc: Int? {
           get {
-            return snapshot["moved_to_dc"] as? Int
+            return snapshot["movedToDc"] as? Int
           }
           set {
-            snapshot.updateValue(newValue, forKey: "moved_to_dc")
+            snapshot.updateValue(newValue, forKey: "movedToDc")
           }
         }
       }

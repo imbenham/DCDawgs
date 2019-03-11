@@ -1,13 +1,13 @@
 type User {
   id: ID!
-  first_name: String!
-  last_name: String!
+  firstName: String!
+  lastName: String!
   email: String
   alum: Boolean
-  honorary_alum: Boolean
+  honoraryAlum: Boolean
   bio: String
-  grad_year: Int
-  moved_to_dc: Int
+  gradYear: Int
+  movedToDc: Int
 }
 
 type Event {
@@ -146,14 +146,14 @@ input ModelBooleanFilterInput {
 
 input ModelUserFilterInput {
   id: ModelIDFilterInput
-  first_name: ModelStringFilterInput
-  last_name: ModelStringFilterInput
+  firstName: ModelStringFilterInput
+  lastName: ModelStringFilterInput
   email: ModelStringFilterInput
   alum: ModelBooleanFilterInput
-  honorary_alum: ModelBooleanFilterInput
+  honoraryAlum: ModelBooleanFilterInput
   bio: ModelStringFilterInput
-  grad_year: ModelIntFilterInput
-  moved_to_dc: ModelIntFilterInput
+  gradYear: ModelIntFilterInput
+  movedToDc: ModelIntFilterInput
   and: [ModelUserFilterInput]
   or: [ModelUserFilterInput]
   not: ModelUserFilterInput
@@ -180,26 +180,26 @@ type Query {
 
 input CreateUserInput {
   id: ID
-  first_name: String!
-  last_name: String!
+  firstName: String!
+  lastName: String!
   email: String
   alum: Boolean
-  honorary_alum: Boolean
+  honoraryAlum: Boolean
   bio: String
-  grad_year: Int
-  moved_to_dc: Int
+  gradYear: Int
+  movedToDc: Int
 }
 
 input UpdateUserInput {
   id: ID!
-  first_name: String
-  last_name: String
+  firstName: String
+  lastName: String
   email: String
   alum: Boolean
-  honorary_alum: Boolean
+  honoraryAlum: Boolean
   bio: String
-  grad_year: Int
-  moved_to_dc: Int
+  gradYear: Int
+  movedToDc: Int
 }
 
 input DeleteUserInput {

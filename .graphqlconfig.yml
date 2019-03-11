@@ -1,6 +1,6 @@
 projects:
   dcdawgs:
-    schemaPath: graphql/schema.json
+    schemaPath: amplify/backend/api/dcdawgs/graphql/schema.json
     includes:
       - graphql/**/*.graphql
     excludes:
