@@ -10,4 +10,8 @@ import Foundation
 
 struct BasicError: Error {
     let message: String
+    
+    var localizedDescription: String {
+        return message
+    }
 }

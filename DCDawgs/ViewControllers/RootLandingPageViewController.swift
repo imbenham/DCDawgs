@@ -89,7 +89,18 @@ class RootLandingPageViewController: BaseViewController {
                 if let attribs = userAttributes {
                     print(attribs)
                     if let id = attribs["sub"], let email = attribs["email"] {
-                        UserManager.shared.getUserForId(id, email: email)
+                        DispatchQueue.main.async {
+                            UserManager.shared.getUserForId(id, email: email) {[weak self] user, error in
+                                DispatchQueue.main.async {
+                                    if let error = error {
+                                        print(error.localizedDescription)
+                                        AWSMobileClient.sharedInstance().signOut()
+                                    } else {
+                                        self?.routeUser(user)
+                                    }
+                                }
+                            }
+                        }
                     }
                 } else {
                     let errorMessage = "error getting user attributes: \(error?.localizedDescription ?? "no error provided")"
@@ -101,8 +112,8 @@ class RootLandingPageViewController: BaseViewController {
         }
     }
     
-    private func routeUser(_ user: CurrentUser) {
-        if user.firstName.isEmpty || user.lastName.isEmpty {
+    private func routeUser(_ user: CurrentUser?) {
+        if user == nil {
             promptCreateProfile()
         } else {
             print("some other stage!")
@@ -110,15 +121,9 @@ class RootLandingPageViewController: BaseViewController {
     }
     
     private func promptCreateProfile() {
-        let cpv = CreateProfilePopUp.createFromNibWithDelegate(self)
-        cpv.alpha = 0.0
-        view.addSubview(cpv)
-        
-        cpv.center = view.center
-        
-        UIView.animate(withDuration: 0.25) {
-            cpv.alpha = 1.0
-        }
+        let cpv = CreateProfileViewController.createFromNibWithDelegate(self)
+       
+        present(cpv, animated: true, completion: nil)
     }
     
 }
@@ -126,8 +131,6 @@ class RootLandingPageViewController: BaseViewController {
 extension RootLandingPageViewController: CreateProfileDelegate {
     func handleCreateProfileRequest(_ request: CreateUserRequest, fromView: UIView) {
         // do some stuff
-        UIView.animate(withDuration: 0.25, animations: {fromView.alpha = 0}) { completed in
-            fromView.removeFromSuperview()
-        }
+        presentedViewController?.dismiss(animated: true, completion: nil)
     }
 }

@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3601886B223748900056CA7C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3601886A223748900056CA7C /* Validation.swift */; };
 		367FED2621FE411A00DA026A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2521FE411A00DA026A /* API.swift */; };
 		367FED2821FE419900DA026A /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 367FED2721FE419900DA026A /* awsconfiguration.json */; };
 		367FED2A21FE4B5100DA026A /* RootLandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2921FE4B5100DA026A /* RootLandingPageViewController.swift */; };
 		367FED2D21FE99C800DA026A /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2C21FE99C800DA026A /* UserManager.swift */; };
 		367FED2F22000A3E00DA026A /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2E22000A3E00DA026A /* CurrentUser.swift */; };
-		36BBEB0B22239C7B00122B63 /* CreateProfilePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BBEB0A22239C7B00122B63 /* CreateProfilePopUp.swift */; };
 		36BBEB0F22239D6200122B63 /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BBEB0E22239D6200122B63 /* CreateUserRequest.swift */; };
-		36BBEB1122239F7D00122B63 /* CreateProfilePopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BBEB1022239F7D00122B63 /* CreateProfilePopUp.xib */; };
 		36BBEB16222CBACE00122B63 /* BasicError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BBEB15222CBACE00122B63 /* BasicError.swift */; };
+		36BBEB18223602FD00122B63 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BBEB17223602FD00122B63 /* CreateProfileViewController.swift */; };
+		36BBEB1A2236037900122B63 /* CreateProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BBEB192236037900122B63 /* CreateProfileViewController.xib */; };
+		36BBEB1C22360AFD00122B63 /* BaseDataEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BBEB1B22360AFD00122B63 /* BaseDataEntryViewController.swift */; };
 		36EF8A8421F665D60000F473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF8A8321F665D60000F473 /* AppDelegate.swift */; };
 		36EF8A8621F665D60000F473 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF8A8521F665D60000F473 /* BaseViewController.swift */; };
 		36EF8A8921F665D60000F473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36EF8A8721F665D60000F473 /* Main.storyboard */; };
@@ -26,15 +28,17 @@
 
 /* Begin PBXFileReference section */
 		06276BCDA4FD120D09C6AE9A /* Pods-DCDawgs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCDawgs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCDawgs/Pods-DCDawgs.debug.xcconfig"; sourceTree = "<group>"; };
+		3601886A223748900056CA7C /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		367FED2521FE411A00DA026A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		367FED2721FE419900DA026A /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		367FED2921FE4B5100DA026A /* RootLandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootLandingPageViewController.swift; sourceTree = "<group>"; };
 		367FED2C21FE99C800DA026A /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		367FED2E22000A3E00DA026A /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
-		36BBEB0A22239C7B00122B63 /* CreateProfilePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfilePopUp.swift; sourceTree = "<group>"; };
 		36BBEB0E22239D6200122B63 /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
-		36BBEB1022239F7D00122B63 /* CreateProfilePopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateProfilePopUp.xib; sourceTree = "<group>"; };
 		36BBEB15222CBACE00122B63 /* BasicError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicError.swift; sourceTree = "<group>"; };
+		36BBEB17223602FD00122B63 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
+		36BBEB192236037900122B63 /* CreateProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateProfileViewController.xib; sourceTree = "<group>"; };
+		36BBEB1B22360AFD00122B63 /* BaseDataEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataEntryViewController.swift; sourceTree = "<group>"; };
 		36EF8A8021F665D60000F473 /* DCDawgs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCDawgs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EF8A8321F665D60000F473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36EF8A8521F665D60000F473 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +62,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36018868223746C40056CA7C /* UserDataEntry */ = {
+			isa = PBXGroup;
+			children = (
+				36018869223746F60056CA7C /* UserProfile */,
+				36BBEB1B22360AFD00122B63 /* BaseDataEntryViewController.swift */,
+			);
+			path = UserDataEntry;
+			sourceTree = "<group>";
+		};
+		36018869223746F60056CA7C /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				36BBEB17223602FD00122B63 /* CreateProfileViewController.swift */,
+				36BBEB192236037900122B63 /* CreateProfileViewController.xib */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
 		367FED1E21FAB7B700DA026A /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +92,7 @@
 		367FED1F21FAB7E300DA026A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				36018868223746C40056CA7C /* UserDataEntry */,
 				36EF8A8521F665D60000F473 /* BaseViewController.swift */,
 				367FED2921FE4B5100DA026A /* RootLandingPageViewController.swift */,
 			);
@@ -95,8 +118,6 @@
 		36BBEB0C22239CA200122B63 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				36BBEB0A22239C7B00122B63 /* CreateProfilePopUp.swift */,
-				36BBEB1022239F7D00122B63 /* CreateProfilePopUp.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				36BBEB15222CBACE00122B63 /* BasicError.swift */,
+				3601886A223748900056CA7C /* Validation.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -231,8 +253,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36BBEB1A2236037900122B63 /* CreateProfileViewController.xib in Resources */,
 				367FED2821FE419900DA026A /* awsconfiguration.json in Resources */,
-				36BBEB1122239F7D00122B63 /* CreateProfilePopUp.xib in Resources */,
 				36EF8A8E21F665DD0000F473 /* LaunchScreen.storyboard in Resources */,
 				36EF8A8B21F665DD0000F473 /* Assets.xcassets in Resources */,
 				36EF8A8921F665D60000F473 /* Main.storyboard in Resources */,
@@ -306,12 +328,14 @@
 				36EF8A8621F665D60000F473 /* BaseViewController.swift in Sources */,
 				367FED2621FE411A00DA026A /* API.swift in Sources */,
 				36EF8A8421F665D60000F473 /* AppDelegate.swift in Sources */,
+				36BBEB18223602FD00122B63 /* CreateProfileViewController.swift in Sources */,
 				367FED2D21FE99C800DA026A /* UserManager.swift in Sources */,
+				36BBEB1C22360AFD00122B63 /* BaseDataEntryViewController.swift in Sources */,
 				36BBEB16222CBACE00122B63 /* BasicError.swift in Sources */,
-				36BBEB0B22239C7B00122B63 /* CreateProfilePopUp.swift in Sources */,
 				367FED2F22000A3E00DA026A /* CurrentUser.swift in Sources */,
 				36BBEB0F22239D6200122B63 /* CreateUserRequest.swift in Sources */,
 				367FED2A21FE4B5100DA026A /* RootLandingPageViewController.swift in Sources */,
+				3601886B223748900056CA7C /* Validation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

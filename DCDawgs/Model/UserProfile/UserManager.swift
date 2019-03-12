@@ -56,10 +56,10 @@ class UserManager {
     }
  
     
-    func getUserForId(_ id: String, email: String) {
+    func getUserForId(_ id: String, email: String, completion:  @escaping (CurrentUser?, Error?)->()) {
         guard let client = appSyncClient else {
-            let errorMessage = "Problem with AWSAppSync"
-            print(errorMessage)
+            let error = BasicError(message:"Problem with AWSAppSync")
+            completion(nil, error)
             return
         }
         
@@ -67,11 +67,11 @@ class UserManager {
         client.fetch(query: userQuery) { (result, error)  in
             if let result = result , let data = result.data {
                 if let user = data.getUser {
-                    self._currentUser = CurrentUser(user)
+                    let newCurrentUser = CurrentUser(user)
+                    self._currentUser = newCurrentUser
+                    completion(newCurrentUser, nil)
                 } else {
-                    let userInput = CreateUserInput(id: id, firstName: "", lastName: "", email: email, alum: nil, honoraryAlum: false, gradYear: nil, movedToDc: nil)
-                    self.createUser(userInput)
-                    
+                    completion(nil, nil)
                 }
             }
         }
