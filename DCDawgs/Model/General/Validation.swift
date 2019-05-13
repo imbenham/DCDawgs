@@ -31,6 +31,16 @@ enum TextValidationRule: Validator {
     case firstName
     case lastName
     
+    func validate(_ base: String, replacementRange: NSRange, replacementString: String) -> ValidationResult {
+        
+        guard let range = Range(replacementRange, in: base) else {
+            return .valid
+        }
+        
+        let input = base.replacingCharacters(in: range, with: replacementString)
+        return validate(input)
+    }
+    
     func validate(_ input: String) -> ValidationResult {
         switch self {
         case .firstName:
@@ -57,24 +67,29 @@ enum TextValidationRule: Validator {
         letters.insert("-")
         letters.insert("'")
         
-        let supplied = CharacterSet.init(charactersIn: lastName)
-        let difference = supplied.subtracting(letters)
+        var start = Set<Character>(lastName)
         
-        if difference.isEmpty {
-            return .valid
-        } else {
-            
-            var disallowed = ""
-            var plural = false
-            for char in String(difference.description) {
-                if disallowed.isEmpty {
-                    disallowed.append(char)
-                } else {
-                    plural = true
-                    disallowed.append(", \(char)")
+        var disallowed = ""
+        var plural = false
+        
+        while start.count > 0 {
+            let char = start.removeFirst()
+            for scalar in char.unicodeScalars {
+                if !letters.contains(scalar) {
+                    if disallowed.count > 0 {
+                        disallowed.append(", \(char)")
+                        plural = true
+                    } else {
+                        disallowed.append(char)
+                    }
                 }
             }
-            let message = "The following  \(plural ? "characters are" : "character is") not valid for the last name value: \(disallowed)"
+        }
+        
+        if disallowed == "" {
+            return .valid
+        } else {
+            let message = "Your last name can't include the following  \(plural ? "characters:" : "character:") \(disallowed)"
             return .invalid(message)
         }
     }

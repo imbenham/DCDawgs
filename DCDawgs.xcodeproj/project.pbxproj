@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3601886B223748900056CA7C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3601886A223748900056CA7C /* Validation.swift */; };
+		3601886D223896C90056CA7C /* UITextField+DCDawgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3601886C223896C90056CA7C /* UITextField+DCDawgs.swift */; };
+		3601886F2239DB800056CA7C /* UIImage+DCDawgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3601886E2239DB800056CA7C /* UIImage+DCDawgs.swift */; };
+		3652F76222886A8200BB7089 /* SwitchContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3652F76122886A8100BB7089 /* SwitchContainerView.swift */; };
+		3652F76522887A2500BB7089 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3652F76422887A2500BB7089 /* Design.swift */; };
 		367FED2621FE411A00DA026A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2521FE411A00DA026A /* API.swift */; };
 		367FED2821FE419900DA026A /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 367FED2721FE419900DA026A /* awsconfiguration.json */; };
 		367FED2A21FE4B5100DA026A /* RootLandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FED2921FE4B5100DA026A /* RootLandingPageViewController.swift */; };
@@ -29,6 +33,10 @@
 /* Begin PBXFileReference section */
 		06276BCDA4FD120D09C6AE9A /* Pods-DCDawgs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCDawgs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCDawgs/Pods-DCDawgs.debug.xcconfig"; sourceTree = "<group>"; };
 		3601886A223748900056CA7C /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		3601886C223896C90056CA7C /* UITextField+DCDawgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+DCDawgs.swift"; sourceTree = "<group>"; };
+		3601886E2239DB800056CA7C /* UIImage+DCDawgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+DCDawgs.swift"; sourceTree = "<group>"; };
+		3652F76122886A8100BB7089 /* SwitchContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchContainerView.swift; sourceTree = "<group>"; };
+		3652F76422887A2500BB7089 /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		367FED2521FE411A00DA026A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		367FED2721FE419900DA026A /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		367FED2921FE4B5100DA026A /* RootLandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootLandingPageViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +88,14 @@
 			path = UserProfile;
 			sourceTree = "<group>";
 		};
+		3652F763228879F100BB7089 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				3652F76422887A2500BB7089 /* Design.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		367FED1E21FAB7B700DA026A /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +118,8 @@
 		367FED2021FAB80300DA026A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3601886C223896C90056CA7C /* UITextField+DCDawgs.swift */,
+				3601886E2239DB800056CA7C /* UIImage+DCDawgs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -118,6 +136,7 @@
 		36BBEB0C22239CA200122B63 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3652F76122886A8100BB7089 /* SwitchContainerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +186,7 @@
 				367FED1F21FAB7E300DA026A /* ViewControllers */,
 				367FED2B21FE999F00DA026A /* Model */,
 				36BBEB0C22239CA200122B63 /* Views */,
+				3652F763228879F100BB7089 /* Util */,
 				367FED2021FAB80300DA026A /* Extensions */,
 				36EF8A8721F665D60000F473 /* Main.storyboard */,
 				36EF8A8A21F665DD0000F473 /* Assets.xcassets */,
@@ -325,17 +345,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3652F76222886A8200BB7089 /* SwitchContainerView.swift in Sources */,
 				36EF8A8621F665D60000F473 /* BaseViewController.swift in Sources */,
 				367FED2621FE411A00DA026A /* API.swift in Sources */,
 				36EF8A8421F665D60000F473 /* AppDelegate.swift in Sources */,
+				3601886F2239DB800056CA7C /* UIImage+DCDawgs.swift in Sources */,
 				36BBEB18223602FD00122B63 /* CreateProfileViewController.swift in Sources */,
 				367FED2D21FE99C800DA026A /* UserManager.swift in Sources */,
 				36BBEB1C22360AFD00122B63 /* BaseDataEntryViewController.swift in Sources */,
 				36BBEB16222CBACE00122B63 /* BasicError.swift in Sources */,
+				3652F76522887A2500BB7089 /* Design.swift in Sources */,
 				367FED2F22000A3E00DA026A /* CurrentUser.swift in Sources */,
 				36BBEB0F22239D6200122B63 /* CreateUserRequest.swift in Sources */,
 				367FED2A21FE4B5100DA026A /* RootLandingPageViewController.swift in Sources */,
 				3601886B223748900056CA7C /* Validation.swift in Sources */,
+				3601886D223896C90056CA7C /* UITextField+DCDawgs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

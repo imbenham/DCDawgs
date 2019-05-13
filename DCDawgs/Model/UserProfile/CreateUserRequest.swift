@@ -12,5 +12,5 @@ struct CreateUserRequest {
     let firstName: String
     let lastName: String
     let alum: Bool
-    let gradYear: Int
+    let gradYear: Int?
 }

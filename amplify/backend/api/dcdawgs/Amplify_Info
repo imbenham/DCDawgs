@@ -100,3 +100,4 @@ from cache or mutations enqueued with credentials automatically refreshing upon 
 other services, if this happens and you are offline you should not make the service request until you 
 come back online, at which point the AWSMobileClient will automatically re-enter the token refresh 
 flow outlined above and then make the service call with the updated credentials.
+

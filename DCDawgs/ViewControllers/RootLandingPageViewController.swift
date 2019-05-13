@@ -71,31 +71,34 @@ class RootLandingPageViewController: BaseViewController {
             print("no nav controller to attach login UI to")
             return
         }
-        AWSMobileClient.sharedInstance().showSignIn(navigationController: navController, { (signInState, error) in
+        AWSMobileClient.sharedInstance().showSignIn(navigationController: navController, {[weak self] (signInState, error) in
             if let signInState = signInState {
                 print("logged in! \(signInState)")
                 
             } else {
                 print("error logging in: \(error?.localizedDescription ?? "no error provided")")
             }
+            self?.configureForLoginState()
         })
     }
     
     private func initializeUser() {
+        print("log in: initialize user called")
         if let currentUser = UserManager.shared.currentUser {
             routeUser(currentUser)
         } else {
            AWSMobileClient.sharedInstance().getUserAttributes() { (userAttributes, error)  in
                 if let attribs = userAttributes {
-                    print(attribs)
+                    print("log in: got user attribs: \(attribs)")
                     if let id = attribs["sub"], let email = attribs["email"] {
                         DispatchQueue.main.async {
                             UserManager.shared.getUserForId(id, email: email) {[weak self] user, error in
                                 DispatchQueue.main.async {
                                     if let error = error {
-                                        print(error.localizedDescription)
+                                        print("log in: failed to get user from user manager: \(error)")
                                         AWSMobileClient.sharedInstance().signOut()
                                     } else {
+                                        print("log in: routing user: \(user)")
                                         self?.routeUser(user)
                                     }
                                 }
